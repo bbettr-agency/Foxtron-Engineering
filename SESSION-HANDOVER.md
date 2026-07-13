@@ -2,54 +2,52 @@
 
 Context for the next session. Read this + `PROJECT_STATUS.md` before working.
 
-> ⚠️ **Read first:** the Client Brief / blueprint (`docs/PHASE-1-BLUEPRINT.md`).
+> ⚠️ **Read first:** `docs/PHASE-1-BLUEPRINT.md` and `docs/IMAGE-INVENTORY.md`.
 
 ## What this is
 
-A new website for Foxtron Engineering — precision sheet-metal fabrication & engineering in
-Sunderland Ridge, Centurion (Gauteng). It replaces a thin 5-page GoHighLevel brochure site.
-Primary conversion: **Request a Quote / Submit an RFQ** (+ click-to-call, email). Built on
-BBETTR Website OS v2.0. **Stage: Phase 1 approved; image system built; PAUSED for client images
-before the Phase 3 build.**
+A new website for Foxtron Engineering — precision sheet-metal fabrication in Centurion, replacing a
+thin GoHighLevel brochure site. Primary conversion: **Request a Quote / RFQ** (+ click-to-call,
+WhatsApp, email). Built on BBETTR Website OS v2.0. **Stage: Phase 3 build complete and
+browser-verified; awaiting client facts + extra imagery before deploy.**
 
 ## Hard rules (do not break)
 
-- **No fabrication.** ISO 9001, stats, specs, reviews, lead-times must not appear as fact until
-  the client confirms them. Everything tagged `[assumed]` in the blueprint is gated out of copy.
-- **Images:** no stock / Unsplash / AI / invented photography. Never overwrite a client asset.
-  All image areas use `<ImageSlot>` + `config/images.ts` — no hardcoded paths in components.
-- **Signal B2B** throughout (ICP language, "for business and trade") to deflect private/hobby jobs.
-- OS standing rules (SYSTEM/00): config-driven copy, Bbettr footer credit, GHL backend.
+- **No fabrication.** ISO 9001, specs, lead-times, stats stay framed from verified/client-stated
+  facts only. Only the 2 genuine Google reviews appear. No rating schema until reviews are countable.
+- **Images:** no stock/AI; client originals never overwritten. Everything via `<ImageSlot>` +
+  `config/images.ts` (`pending`/`ready`). Missing → labeled placeholder stays.
+- **Config-driven:** no copy/contact/spec hardcoded in components — all in `config/`.
+- OS standing rules: GHL backend, Bbettr footer credit.
 
 ## Architecture (where things are)
 
-- **Image manifest + status:** `config/images.ts` (single source of truth; `pending`/`ready`).
-- **Image slot primitive:** `components/ui/image-slot.tsx`.
-- **Image spec/docs:** `public/images/README.md` (filenames, dimensions, ratios, formats, caps).
-- **Research/blueprint:** `docs/PHASE-1-BLUEPRINT.md`.
-- **Not yet created (Phase 3):** `app/`, `views/`, `components/sections|funnel`, `config/site-config.ts`,
-  `config/seo-config.ts`, `config/services-config.ts`, `lib/metadata.ts`, `tailwind.config.ts`.
+- **Pages:** `app/**/page.tsx` · homepage composition in `views/home-view.tsx` (section order).
+- **Sections:** `components/sections/*` · **Funnel:** `components/funnel/*` (header, footer, sticky-cta, rfq-form).
+- **UI primitives:** `components/ui/*` (button, section-heading, reveal, count-up, image-slot, logo, json-ld).
+- **Content:** `config/site-config.ts`, `services-config.ts`, `content-config.ts`, `faqs-config.ts`, `seo-config.ts`, `images.ts`.
+- **SEO/schema:** `lib/metadata.ts`, `lib/schema.ts`; JSON-LD injected per page + LocalBusiness in `app/layout.tsx`.
+- **RFQ transport:** `app/api/rfq/route.ts` → `GHL_WEBHOOK_URL` (server env; demo-mode if unset) → `/thank-you`.
+- **Brand tokens:** `tailwind.config.ts` — steel `#1F2933` + accent `#EA580C`/`#C2410C` (await sign-off).
 
-## Verify before pushing (Phase 3 onward)
+## Verify before pushing
 
 ```bash
-npm run build && npm run lint && npx tsc --noEmit
+npm run build && npm run lint && npx tsc --noEmit   # all currently pass
 ```
-Mobile-check at 360/390/768. Gate 3 checklist in `PIPELINE/gates.md` (OS repo) before launch talk.
+Preview: `foxtron-dev` (OS worktree launch.json). Mobile-check 360/390/768. Full Gate 3 in `PIPELINE/gates.md`.
 
 ## Recently done (this session)
 
-- Ran Phase 1 research (site audit, competitor teardown, SEO/local, B2B buyer psychology) → blueprint.
-- Eloff approved the blueprint (Gate 1) and confirmed the permanent repo.
-- Built the image system: folder tree, master README manifest, `config/images.ts`, `ImageSlot` primitive.
-- Added README, PROJECT_STATUS, this handover.
+- Reviewed all 124 factory + 7 team images (vision agents); assigned to sections in `config/images.ts`.
+- Built the full site (Phase 3): 11 page types, sections, multi-step RFQ, SEO/schema, sitemap/robots.
+- Verified in browser: desktop + mobile, no console errors, no 360px overflow, RFQ API returns ok.
 
 ## Next session — exact starting prompt
 
-> Read `docs/PHASE-1-BLUEPRINT.md`, `PROJECT_STATUS.md`, and `config/images.ts`. If Eloff has
-> uploaded real images, flip their `status` to `"ready"` in `config/images.ts`. Then begin **Phase 3**:
-> confirm the client-blocked items (ISO, founding year, specs, lead-times, NAP, GHL webhook, final
-> service list), scaffold the Next.js 14 app on the pinned OS stack, derive brand tokens from the logo
-> (Gate 2), and build pages per the blueprint sitemap — Home first. "Done" for each page = build + lint
-> + tsc clean, mobile QA at 360/390/768, and every section answering a named objection from the brief.
-> Do not publish any `[assumed]` claim as fact.
+> Read `PROJECT_STATUS.md`. If Eloff has provided: (a) team identity mapping → set `team.anton/monica/karl`
+> in `config/images.ts` to the right files + status "ready"; (b) real ISO certificate / specs / founding
+> year / NAP / GHL webhook → update `config/*` and flip the relevant claims from framed to factual.
+> Then: crop a square favicon from the logo's fox-plate, compose OG images, wire GTM/Ads conversion
+> events, run Lighthouse (mobile ≥90) + axe (zero critical), deploy to Vercel from `main`, set
+> `GHL_WEBHOOK_URL`, submit sitemap. "Done" = Gate 3 + Gate 4 in `PIPELINE/gates.md` pass.
