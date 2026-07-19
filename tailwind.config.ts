@@ -7,7 +7,7 @@ import type { Config } from "tailwindcss";
  *
  * - primary  = steel/charcoal (trust): links, icons, dark surfaces
  * - accent   = industrial orange (conversion): RESERVED for primary CTAs
- * - WhatsApp green #25D366 is the only other action color
+ * Conversion channels: Request a Quote, phone, email.
  */
 const config: Config = {
   content: [
@@ -37,7 +37,6 @@ const config: Config = {
           mist: "#EEF1F4",
           bone: "#F9FAFB",
         },
-        whatsapp: "#25D366",
         success: "#16A34A",
         error: "#DC2626",
       },

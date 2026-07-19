@@ -8,7 +8,7 @@ Context for the next session. Read this + `PROJECT_STATUS.md` before working.
 
 A new website for Foxtron Engineering — precision sheet-metal fabrication in Centurion, replacing a
 thin GoHighLevel brochure site. Primary conversion: **Request a Quote / RFQ** (+ click-to-call,
-WhatsApp, email). Built on BBETTR Website OS v2.0. **Stage: Phase 3 build complete and
+email). Built on BBETTR Website OS v2.0. **Stage: Phase 3 build complete and
 browser-verified; awaiting client facts + extra imagery before deploy.**
 
 ## Hard rules (do not break)

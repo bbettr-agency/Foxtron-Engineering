@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost" | "whatsapp";
+type Variant = "primary" | "secondary" | "ghost";
 type Size = "md" | "lg";
 
 const base =
@@ -12,7 +12,6 @@ const variants: Record<Variant, string> = {
   primary: "bg-brand-accentDark text-white hover:bg-brand-accent hover:-translate-y-0.5 shadow-accent",
   secondary: "bg-brand-primary text-white hover:bg-brand-primaryLight hover:-translate-y-0.5",
   ghost: "bg-transparent text-brand-primary ring-1 ring-inset ring-brand-steel/40 hover:bg-brand-mist",
-  whatsapp: "bg-whatsapp text-white hover:brightness-95 hover:-translate-y-0.5",
 };
 
 const sizes: Record<Size, string> = {

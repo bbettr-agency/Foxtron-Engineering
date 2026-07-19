@@ -17,9 +17,9 @@
 - [x] Phase 3 build — Next.js 14 app on pinned OS stack. Build + lint + typecheck all pass; first-load JS ~137KB.
   - Brand tokens (steel/charcoal + industrial-orange accent) in `tailwind.config.ts`
   - Config-driven content: site, services, content, faqs, seo configs
-  - Pages: Home, Services hub, Service spokes (laser-cutting, cnc-bending, welding-assembly, cnc-punching), About, Industries, Quote, Contact, FAQ, Thank-you, 404
+  - Pages: Home, Services hub, Service spokes (laser-cutting, cnc-bending, welding-assembly, cnc-punching), Gallery, About, Quote, Contact, FAQ, Thank-you, 404
   - Multi-step RFQ form → `/api/rfq` → GHL webhook (demo-mode fallback) → `/thank-you`
-  - Header + mobile nav, footer, sticky mobile CTA bar (Call/WhatsApp/Quote)
+  - Header + mobile nav, footer, sticky mobile CTA bar (Call/Request a Quote)
   - SEO: per-page metadata + canonical + OG, `sitemap.ts`, `robots.ts`, JSON-LD (LocalBusiness/Service/FAQPage/Breadcrumb)
   - Verified in browser: desktop + mobile (no horizontal scroll at 360px), no console errors, RFQ path returns ok
 
@@ -45,7 +45,7 @@
 - [ ] **Canonical NAP** (street/postcode/email) + www vs non-www decision.
 - [ ] **GoHighLevel** inbound webhook URL + workflow + file-upload handling (form sends file NAME only until storage wired).
 - [ ] **Extra imagery**: CNC punching, CNC machining, factory exterior, industry-specific shots (placeholders remain).
-- [ ] **WhatsApp number** + social profile URLs.
+- [ ] **Social profile URLs** (Facebook/Instagram/LinkedIn).
 - [ ] Access: domain, Vercel, GBP, analytics, Google Ads.
 
 ## Gate results

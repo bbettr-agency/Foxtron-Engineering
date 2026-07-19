@@ -21,7 +21,6 @@ export const site = {
   contact: {
     phoneDisplay: "012 666 9933",
     phoneHref: "tel:+27126669933",
-    whatsappNumber: "27126669933", // [assumed] confirm a WhatsApp-enabled number
     email: "info@foxtronengineering.co.za",
     emailHref: "mailto:info@foxtronengineering.co.za",
   },
@@ -73,21 +72,15 @@ export type NavItem = { label: string; href: string };
 
 export const nav: NavItem[] = [
   { label: "Services", href: "/services" },
+  { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
-  { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
 ];
 
-// Primary CTA = RFQ (accent). Secondary = call.
+// Conversion channels: Request a Quote (primary), phone, email.
 export const cta = {
   quote: { label: "Request a Quote", href: "/quote" },
   quoteUpload: { label: "Request a Quote / Upload Drawing", href: "/quote" },
   call: { label: site.contact.phoneDisplay, href: site.contact.phoneHref },
-  whatsapp: {
-    label: "WhatsApp",
-    href: `https://wa.me/${site.contact.whatsappNumber}?text=${encodeURIComponent(
-      "Hi Foxtron, I'd like a quote for a fabrication job.",
-    )}`,
-  },
   email: { label: site.contact.email, href: site.contact.emailHref },
 } as const;

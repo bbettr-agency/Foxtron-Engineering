@@ -86,10 +86,11 @@ export const factory = {
 export const machinery = {
   laser: ready("/images/factory/Untitled-23047.jpg", 1200, 900, "Fiber laser cutter", "Foxtron Engineering fiber laser cutting machine"),
   pressBrake: ready("/images/factory/Untitled-23118.jpg", 1200, 900, "CNC press brakes", "Trumpf TruBend CNC press brakes for sheet metal bending at Foxtron Engineering"),
-  // No dedicated turret-punch photo supplied.
-  punch: slot("/images/machinery/cnc-punch.jpg", 1200, 900, "CNC punch", "CNC punching machine for sheet metal components"),
-  // No CNC mill/lathe photo supplied.
-  machining: slot("/images/machinery/cnc-machine.jpg", 1200, 900, "CNC machining centre", "CNC machining centre"),
+  // No dedicated turret-punch photo supplied — using an authentic wide view of the
+  // CNC production floor. Alt text describes what is actually shown.
+  punch: ready("/images/factory/Untitled-23127.jpg", 1200, 900, "CNC punch", "CNC machinery on the Foxtron Engineering production floor"),
+  // No CNC mill/lathe photo supplied — using a genuine finishing-process photo.
+  machining: ready("/images/factory/Untitled-23093.jpg", 1200, 900, "Machining & finishing", "Finishing a fabricated sheet metal component at Foxtron Engineering"),
   welding: ready("/images/factory/Untitled-23101.jpg", 1200, 900, "Welding equipment", "MIG/TIG welding equipment at the Foxtron Engineering welding bay"),
   // Only a single context shot of rolling exists — usable but not a strong solo machine photo.
   rolling: ready("/images/factory/Untitled-23102.jpg", 1200, 900, "Roll work", "Roll work and forming in the Foxtron Engineering workshop"),
@@ -133,26 +134,123 @@ export const services: Record<ServiceSlug, ServiceImagePair> = {
   },
 };
 
-// ── Projects / portfolio (real finished parts & assemblies) ──────────────────
-export const projects: ManagedImage[] = [
-  ready("/images/factory/Untitled-23098.jpg", 1200, 900, "Fabricated enclosure", "Completed fabricated sheet metal housing with machined bore"),
-  ready("/images/factory/Untitled-23028.jpg", 1200, 900, "Laser-cut bracket", "Laser-cut steel bracket with precision bore"),
-  ready("/images/factory/Untitled-23129.jpg", 1200, 900, "Laser-cut parts", "Stacks of precision laser-cut sheet metal parts"),
-  ready("/images/factory/Untitled-23130.jpg", 1200, 900, "Nested cut parts", "Laser-cut components stacked on the workshop bench"),
-  ready("/images/factory/Untitled-23057.jpg", 1200, 900, "Fabricated steel frame", "Welded and fabricated steel frame assembly"),
-  ready("/images/factory/Untitled-23103.jpg", 1200, 900, "Welded frame", "Welded rectangular steel frame on the assembly table"),
-  ready("/images/factory/Untitled-23029.jpg", 1200, 900, "Machined flange", "Inspecting a machined round flange component"),
-  ready("/images/factory/Untitled-23058.jpg", 1200, 900, "Steel frame assembly", "Fabricated vertical steel frame at the welding station"),
+// Finished parts/portfolio imagery now lives in the "Finished Work" gallery
+// category below (single source — no duplicate projects list).
+
+// ── Gallery categories — the /gallery page + homepage preview ────────────────
+// All authentic uploaded Foxtron photography, grouped by what the image shows.
+export interface GalleryCategory {
+  slug: string;
+  name: string;
+  blurb: string;
+  images: ManagedImage[];
+}
+
+const g = (file: string, label: string, alt: string, w = 1200, h = 900) =>
+  ready(`/images/factory/${file}`, w, h, label, alt);
+
+export const galleryCategories: GalleryCategory[] = [
+  {
+    slug: "machinery",
+    name: "Machinery",
+    blurb: "The CNC equipment behind every job — laser, press brakes, welding and forming.",
+    images: [
+      g("Untitled-23047.jpg", "Fibre laser cutter", "Fibre laser cutting machine at Foxtron Engineering"),
+      g("Untitled-23117.jpg", "Fibre laser machine", "Fibre laser cutting machine on the Foxtron workshop floor"),
+      g("Untitled-23118.jpg", "CNC press brakes", "Trumpf CNC press brakes for sheet metal bending"),
+      g("Untitled-23132.jpg", "Bystronic press brake", "Bystronic CNC press brake in operation"),
+      g("Untitled-23048.jpg", "Laser cutting system", "Fibre laser cutting system with dust extraction"),
+      g("Untitled-23101.jpg", "Welding equipment", "MIG and TIG welding equipment at the welding bay"),
+      g("Untitled-23127.jpg", "CNC production floor", "CNC machinery across the Foxtron production floor"),
+      g("Untitled-23102.jpg", "Roll work & forming", "Roll work and forming in the Foxtron workshop"),
+    ],
+  },
+  {
+    slug: "laser-cutting",
+    name: "Laser Cutting",
+    blurb: "Fibre laser cutting in action — clean edges across steel, stainless and aluminium.",
+    images: [
+      g("Untitled-23011.jpg", "Cutting with sparks", "Fibre laser cutting head cutting sheet metal with sparks"),
+      g("Untitled-23010.jpg", "Cutting head", "Close-up of the fibre laser cutting head over a nested sheet"),
+      g("Untitled-23037.jpg", "Laser in action", "Laser cutting head firing on the sheet bed"),
+      g("Untitled-23013.jpg", "Spark detail", "Laser cutting head mid-cut with sparks"),
+      g("Untitled-23008.jpg", "Loading the bed", "Operator loading sheet onto the laser cutting bed"),
+      g("Untitled-23040.jpg", "Removing cut parts", "Operator removing laser-cut parts from the nest"),
+      g("Untitled-23049.jpg", "Cutting bed", "The laser cutting bed and extraction system"),
+      g("Untitled-23019.jpg", "At the controls", "Operator at the laser cutting machine controls"),
+    ],
+  },
+  {
+    slug: "cnc-bending",
+    name: "CNC Bending",
+    blurb: "Press-brake folding — accurate, repeatable angles from prototype to production.",
+    images: [
+      g("Untitled-23126.jpg", "Folding a panel", "Operators folding a large sheet metal panel on a CNC press brake"),
+      g("Untitled-23125.jpg", "Bending in progress", "Bending a large panel on the Bystronic press brake"),
+      g("Untitled-23124.jpg", "Long-sheet bending", "Two operators bending a long sheet on the press brake"),
+      g("Untitled-23128.jpg", "CNC controls", "Operator at the CNC press brake control panel"),
+      g("Untitled-23119.jpg", "Press brake work", "CNC press brake with bent parts on the bench"),
+      g("Untitled-23122.jpg", "Bending department", "The CNC bending department at Foxtron Engineering"),
+    ],
+  },
+  {
+    slug: "welding-assembly",
+    name: "Welding & Assembly",
+    blurb: "MIG and TIG welding, fabrication and fitting — parts finished ready to use.",
+    images: [
+      g("Untitled-23077.jpg", "Tube frame welding", "Welding a steel tube frame at the assembly bench"),
+      g("Untitled-23067.jpg", "Live arc", "Welder mid-arc with sparks on a fabricated part"),
+      g("Untitled-23055.jpg", "Welding a fixture", "Welder working on a clamped fixture with a live arc"),
+      g("Untitled-23061.jpg", "Welding bay", "The Foxtron Engineering welding bay"),
+      g("Untitled-23085.jpg", "Finishing sparks", "Grinding and finishing a fabricated part"),
+      g("Untitled-23103.jpg", "Frame fabrication", "Welded steel frame on the assembly table"),
+      g("Untitled-23141.jpg", "At the bench", "Welder at the fabrication bench"),
+      g("Untitled-23093.jpg", "Grinding & finishing", "Finishing a fabricated sheet metal enclosure"),
+    ],
+  },
+  {
+    slug: "factory",
+    name: "Factory",
+    blurb: "Inside the Sunderland Ridge workshop — the floor, the space and the team at work.",
+    images: [
+      g("Untitled-23046.jpg", "Workshop floor", "The Foxtron Engineering workshop floor"),
+      g("Untitled-23083.jpg", "Workshop bay", "Wide view of the Foxtron fabrication workshop"),
+      g("Untitled-23016.jpg", "Laser cell", "The fibre laser cutting cell in the workshop"),
+      g("Untitled-23018.jpg", "Production floor", "The Foxtron production floor in daylight"),
+      g("Untitled-23092.jpg", "The workshop", "Wide view of the Foxtron Engineering workshop and roller doors"),
+      g("Untitled-23090.jpg", "Logistics", "Forklift and fabrication work on the Foxtron floor"),
+      g("Untitled-23106.jpg", "Fabrication in progress", "Fabrication in progress across the workshop"),
+      g("Untitled-23059.jpg", "Welding area", "The welding area of the Foxtron workshop"),
+    ],
+  },
+  {
+    slug: "finished-work",
+    name: "Finished Work",
+    blurb: "Real parts and assemblies — laser-cut, folded, welded and finished in Centurion.",
+    images: [
+      g("Untitled-23098.jpg", "Fabricated enclosure", "Completed fabricated sheet metal housing with machined bore"),
+      g("Untitled-23028.jpg", "Laser-cut bracket", "Laser-cut steel bracket with precision bore"),
+      g("Untitled-23129.jpg", "Laser-cut parts", "Stacks of precision laser-cut sheet metal parts"),
+      g("Untitled-23130.jpg", "Nested parts", "Laser-cut components stacked on the workshop bench"),
+      g("Untitled-23057.jpg", "Steel frame", "Welded and fabricated steel frame assembly"),
+      g("Untitled-23058.jpg", "Frame assembly", "Fabricated vertical steel frame at the welding station"),
+      g("Untitled-23029.jpg", "Machined flange", "Inspecting a machined round flange component"),
+      g("Untitled-23131.jpg", "Perforated panels", "Stacked perforated sheet metal panels"),
+    ],
+  },
 ];
 
-// ── Industries (no sector-specific photography supplied yet) ─────────────────
-export const industries = {
-  automotive: slot("/images/industries/automotive.jpg", 1200, 800, "Automotive", "Automotive sheet metal parts fabricated by Foxtron Engineering"),
-  construction: slot("/images/industries/construction.jpg", 1200, 800, "Construction", "Construction and architectural metal fabrication"),
-  electrical: slot("/images/industries/electrical.jpg", 1200, 800, "Electrical", "Electrical enclosures and panels"),
-  oem: slot("/images/industries/oem.jpg", 1200, 800, "OEM", "OEM sub-assembly and production parts"),
-  generalEngineering: slot("/images/industries/general-engineering.jpg", 1200, 800, "General engineering", "General engineering fabrication work"),
-} as const;
+/** Flat list of every gallery image. */
+export const galleryAll: ManagedImage[] = galleryCategories.flatMap((c) => c.images);
+
+/** One representative image per category — used by the homepage preview. */
+export const galleryPreview = galleryCategories.map((c) => ({
+  slug: c.slug,
+  name: c.name,
+  blurb: c.blurb,
+  image: c.images[0],
+  count: c.images.length,
+}));
 
 // ── Team ─────────────────────────────────────────────────────────────────────
 // 7 studio portraits supplied; identities NOT yet confirmed by the client, so
@@ -205,8 +303,7 @@ export const allImages: ManagedImage[] = [
   ...Object.values(factory),
   ...Object.values(machinery),
   ...Object.values(services).flatMap((s) => [s.hero, s.detail]),
-  ...projects,
-  ...Object.values(industries),
+  ...galleryAll,
   ...Object.values(team),
   ...teamRoster,
   ...Object.values(certifications),

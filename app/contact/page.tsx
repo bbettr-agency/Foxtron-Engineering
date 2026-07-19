@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { FinalCta } from "@/components/sections/final-cta";
 import { ButtonLink } from "@/components/ui/button";
@@ -25,7 +25,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Get in touch with Foxtron"
-        body="Call, email, WhatsApp or request a quote — we're here Monday to Friday and respond fast."
+        body="Call, email or request a quote — we're here Monday to Friday and respond fast."
         crumbs={crumbs}
       />
 
@@ -77,8 +77,8 @@ export default function ContactPage() {
               <ButtonLink href={cta.quote.href} size="lg">
                 Request a Quote
               </ButtonLink>
-              <ButtonLink href={cta.whatsapp.href} variant="whatsapp" size="lg" external>
-                <MessageCircle size={18} aria-hidden /> WhatsApp us
+              <ButtonLink href={cta.email.href} variant="ghost" size="lg">
+                <Mail size={18} aria-hidden /> Email us
               </ButtonLink>
             </div>
           </div>

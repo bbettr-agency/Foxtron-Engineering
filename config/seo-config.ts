@@ -40,11 +40,11 @@ export const pageSeo: Record<string, PageSeo> = {
       "A Centurion sheet metal fabrication partner since 1992, serving automotive, construction, electrical and OEM clients across Gauteng.",
     path: "/about",
   },
-  industries: {
-    title: "Industries We Serve",
+  gallery: {
+    title: "Our Work — Fabrication Gallery",
     description:
-      "Foxtron Engineering fabricates precision metal parts for automotive, construction, electrical, OEM and general engineering clients across Gauteng.",
-    path: "/industries",
+      "See inside the Foxtron Engineering workshop in Centurion: machinery, laser cutting, CNC bending, welding and finished fabrication work.",
+    path: "/gallery",
   },
   quote: {
     title: "Request a Quote — Upload Your Drawing",

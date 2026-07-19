@@ -3,9 +3,8 @@ import { StatsBar } from "@/components/sections/stats-bar";
 import { Capabilities } from "@/components/sections/capabilities";
 import { Machinery } from "@/components/sections/machinery";
 import { WhyUs } from "@/components/sections/why-us";
-import { Industries } from "@/components/sections/industries";
+import { GalleryPreview } from "@/components/sections/gallery-preview";
 import { Quality } from "@/components/sections/quality";
-import { Projects } from "@/components/sections/projects";
 import { Process } from "@/components/sections/process";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Faq } from "@/components/sections/faq";
@@ -20,9 +19,8 @@ export function HomeView() {
       <Capabilities />
       <Machinery />
       <WhyUs />
-      <Industries />
+      <GalleryPreview />
       <Quality />
-      <Projects />
       <Process />
       <Testimonials />
       <Faq />

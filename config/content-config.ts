@@ -1,11 +1,10 @@
 /**
  * CONTENT CONFIG — Foxtron Engineering
- * Trust proof, stats, industries, testimonials, differentiators, process.
+ * Trust proof, stats, testimonials, differentiators, process.
  * Only [verified]/[client-stated] facts. No fabricated stats or reviews.
  */
 
 import { site } from "@/config/site-config";
-import { industries as industryImages } from "@/config/images";
 
 const yearsInBusiness = new Date().getFullYear() - site.foundedYear; // derived from [client-stated] 1992
 
@@ -35,15 +34,6 @@ export const differentiators = [
     title: "Established since 1992",
     body: "Three decades of fabrication experience for automotive, construction, electrical, OEM and general engineering clients across Gauteng.",
   },
-];
-
-// ── Industries served [verified from live site] ──
-export const industries = [
-  { key: "automotive", name: "Automotive", image: industryImages.automotive, blurb: "Brackets, panels and components for automotive manufacturing and repair." },
-  { key: "construction", name: "Construction", image: industryImages.construction, blurb: "Fabricated steel and architectural metalwork for construction projects." },
-  { key: "electrical", name: "Electrical", image: industryImages.electrical, blurb: "Enclosures, panels and mounting hardware for the electrical sector." },
-  { key: "oem", name: "OEM & Manufacturing", image: industryImages.oem, blurb: "Sub-assemblies and production parts for original equipment manufacturers." },
-  { key: "general", name: "General Engineering", image: industryImages.generalEngineering, blurb: "Custom fabrication for shopfitting, general engineering and trade." },
 ];
 
 // ── Testimonials — ONLY the two genuine reviews from the live site ──

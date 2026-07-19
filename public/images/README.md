@@ -77,19 +77,14 @@ Expected files:
 `welding-assembly/welding-assembly-hero.jpg`, `welding-assembly/welding-assembly-detail.jpg` ·
 `machining/machining-hero.jpg`, `machining/machining-detail.jpg`.
 
-### projects/  — portfolio / case studies (the biggest untapped trust surface)
-| Filename | Dimensions | AR | Format | Shows |
-|---|---|---|---|---|
-| `project-01.jpg` … `project-08.jpg` | 1200×900 | 4:3 | JPG | Real finished parts / assemblies. Sector + brief noted per item in config. Start with 6–8. |
+### projects/ + gallery/  — portfolio
+The `/gallery` page and the homepage "Our Work" preview are curated **in config**
+(`galleryCategories` in `config/images.ts`) from the uploaded `factory/` and `team/` photography,
+grouped into: Machinery · Laser Cutting · CNC Bending · Welding & Assembly · Factory · Finished Work.
+Drop new portfolio photos into `projects/` or `gallery/` and add them to the relevant category.
 
-### industries/  — sector fit
-| Filename | Dimensions | AR | Format | Shows |
-|---|---|---|---|---|
-| `automotive.jpg` | 1200×800 | 3:2 | JPG | Automotive parts/brackets you've made |
-| `construction.jpg` | 1200×800 | 3:2 | JPG | Construction/architectural work |
-| `electrical.jpg` | 1200×800 | 3:2 | JPG | Electrical enclosures/panels |
-| `oem.jpg` | 1200×800 | 3:2 | JPG | OEM sub-assembly / production parts |
-| `general-engineering.jpg` | 1200×800 | 3:2 | JPG | General engineering / other sectors |
+> **Industries imagery is no longer used.** The dedicated `/industries` page was removed in favour
+> of the `/gallery` page; the `public/images/industries/` folder was deleted.
 
 ### team/  — people (trust + continuity). Optional but recommended.
 | Filename | Dimensions | AR | Format | Shows |

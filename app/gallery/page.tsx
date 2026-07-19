@@ -1,31 +1,31 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
-import { Industries } from "@/components/sections/industries";
+import { GalleryGrid } from "@/components/sections/gallery-grid";
 import { FinalCta } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildMetadata, pageSeo } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 import { factory } from "@/config/images";
 
-export const metadata: Metadata = buildMetadata(pageSeo.industries);
+export const metadata: Metadata = buildMetadata(pageSeo.gallery);
 
 const crumbs = [
   { name: "Home", path: "/" },
-  { name: "Industries", path: "/industries" },
+  { name: "Gallery", path: "/gallery" },
 ];
 
-export default function IndustriesPage() {
+export default function GalleryPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <PageHero
-        eyebrow="Industries"
-        title="Fabrication for business & industry"
-        body="Precision metal parts and assemblies for automotive, construction, electrical, OEM and general engineering clients across Gauteng."
+        eyebrow="Our work"
+        title="Inside the Foxtron workshop"
+        body="Machinery, processes and finished parts — photographed on our floor in Sunderland Ridge, Centurion."
         crumbs={crumbs}
-        image={factory.floor2}
+        image={factory.floor1}
       />
-      <Industries />
+      <GalleryGrid />
       <FinalCta />
     </>
   );

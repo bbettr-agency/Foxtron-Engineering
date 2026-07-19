@@ -4,7 +4,7 @@ import { servicePages } from "@/config/services-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url;
-  const staticPaths = ["", "/services", "/about", "/industries", "/quote", "/contact", "/faq"];
+  const staticPaths = ["", "/services", "/gallery", "/about", "/quote", "/contact", "/faq"];
 
   const routes: MetadataRoute.Sitemap = staticPaths.map((p) => ({
     url: `${base}${p}`,
