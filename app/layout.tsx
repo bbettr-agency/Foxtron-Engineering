@@ -7,6 +7,7 @@ import { StickyCta } from "@/components/funnel/sticky-cta";
 import { JsonLd } from "@/components/ui/json-ld";
 import { rootMetadata } from "@/lib/metadata";
 import { localBusinessSchema } from "@/lib/schema";
+import { Analytics } from "@vercel/analytics/next";
 
 const display = Sora({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["600", "700", "800"] });
 const body = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <StickyCta />
+        <Analytics />
       </body>
     </html>
   );
