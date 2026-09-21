@@ -5,7 +5,7 @@ import { site, cta } from "@/config/site-config";
 
 export function FinalCta() {
   return (
-    <section className="section-pad bg-brand-primary">
+    <section className="section-pad brushed-steel bg-brand-primary">
       <div className="container-page">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">

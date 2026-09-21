@@ -4,6 +4,8 @@ import "./globals.css";
 import { Header } from "@/components/funnel/header";
 import { Footer } from "@/components/funnel/footer";
 import { StickyCta } from "@/components/funnel/sticky-cta";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { JsonLd } from "@/components/ui/json-ld";
 import { rootMetadata } from "@/lib/metadata";
 import { localBusinessSchema } from "@/lib/schema";
@@ -17,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-ZA" className={`${display.variable} ${body.variable}`}>
       <body className="min-h-screen">
+        <SmoothScroll />
         <JsonLd data={localBusinessSchema()} />
         <a
           href="#main"
@@ -24,12 +27,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Header />
-        <main id="main" className="pb-[56px] lg:pb-0">
-          {children}
-        </main>
-        <Footer />
-        <StickyCta />
+        <MotionProvider>
+          <Header />
+          <main id="main" className="pb-[56px] lg:pb-0">
+            {children}
+          </main>
+          <Footer />
+          <StickyCta />
+        </MotionProvider>
       </body>
     </html>
   );

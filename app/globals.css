@@ -49,6 +49,59 @@
   }
 
   .eyebrow {
-    @apply text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent;
+    @apply inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent;
+  }
+  /* Cut-line tick before an eyebrow — nods to laser cutting. */
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-px w-8 bg-brand-accent;
+  }
+
+  /* Brushed-steel texture for dark industrial panels. */
+  .brushed-steel {
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 40%),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.015) 0px,
+        rgba(255, 255, 255, 0.015) 1px,
+        rgba(0, 0, 0, 0) 1px,
+        rgba(0, 0, 0, 0) 3px
+      );
+  }
+
+  /* Rivet/bolt dots echoing the fox-plate logo — decorative corners. */
+  .rivets::before,
+  .rivets::after {
+    content: "";
+    @apply pointer-events-none absolute h-1.5 w-1.5 rounded-full bg-brand-steel/50;
+  }
+  .rivets::before {
+    top: 0.75rem;
+    left: 0.75rem;
+    box-shadow: calc(100% + 1.5rem) 0 0 theme("colors.brand.steel" / 0.5);
+  }
+  .rivets::after {
+    bottom: 0.75rem;
+    left: 0.75rem;
+    box-shadow: calc(100% + 1.5rem) 0 0 theme("colors.brand.steel" / 0.5);
+  }
+
+  /* Animated hairline rule that "draws" across. */
+  .cut-rule {
+    @apply relative h-px w-full bg-brand-mist;
+  }
+}
+
+@layer utilities {
+  /* fine grain overlay for premium depth on media */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import type { ReactNode } from "react";
 
 /** Section reveal — OS converged values (0.7s, y 24→0, once). Respects reduced-motion via CSS. */
@@ -15,7 +15,7 @@ export function Reveal({
   delay?: number;
   as?: "div" | "section" | "li" | "article";
 }) {
-  const MotionTag = motion[as];
+  const MotionTag = m[as];
   return (
     <MotionTag
       className={className}

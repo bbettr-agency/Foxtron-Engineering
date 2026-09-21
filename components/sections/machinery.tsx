@@ -1,6 +1,7 @@
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { ImageSlot } from "@/components/ui/image-slot";
+import { LaserReveal } from "@/components/ui/laser-reveal";
 import { machinery } from "@/config/images";
 
 const items = [
@@ -14,7 +15,7 @@ const items = [
 
 export function Machinery() {
   return (
-    <section className="section-pad bg-brand-ink">
+    <section className="section-pad brushed-steel bg-brand-ink">
       <div className="container-page">
         <SectionHeading
           eyebrow="Our capability"
@@ -23,18 +24,23 @@ export function Machinery() {
           tone="light"
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it, i) => (
             <Reveal key={it.name} delay={(i % 3) * 0.08} as="article" className="group">
-              <div className="overflow-hidden rounded-2xl ring-1 ring-white/10">
+              <LaserReveal delay={(i % 3) * 0.06} className="rounded-2xl ring-1 ring-white/10">
                 <ImageSlot
                   image={it.image}
                   sizes="(max-width:768px) 100vw, 33vw"
-                  className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.04]"
+                  className="aspect-[4/3] w-full transition-transform duration-[600ms] ease-reveal group-hover:scale-[1.05]"
                 />
+              </LaserReveal>
+              <div className="mt-4 flex items-baseline gap-3">
+                <span className="text-xs font-bold tabular-nums text-brand-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-lg font-semibold text-white">{it.name}</h3>
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-white">{it.name}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-brand-steel">{it.note}</p>
+              <p className="mt-1 pl-7 text-sm leading-relaxed text-brand-steel">{it.note}</p>
             </Reveal>
           ))}
         </div>

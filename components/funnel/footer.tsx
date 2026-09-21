@@ -9,7 +9,7 @@ export function Footer() {
   const a = site.address;
 
   return (
-    <footer className="bg-brand-ink text-brand-mist">
+    <footer className="brushed-steel bg-brand-ink text-brand-mist">
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-1">
           <Logo invert className="h-10" />
