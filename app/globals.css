@@ -49,10 +49,15 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent;
+    @apply inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-brand-accent md:text-sm;
   }
   /* Cut-line tick before an eyebrow — nods to laser cutting. */
   .eyebrow::before {
+    content: "";
+    @apply inline-block h-px w-8 bg-brand-accent;
+  }
+  /* Centered eyebrow — symmetric ticks on both sides. */
+  .eyebrow--center::after {
     content: "";
     @apply inline-block h-px w-8 bg-brand-accent;
   }

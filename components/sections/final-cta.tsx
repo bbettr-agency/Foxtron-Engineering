@@ -8,7 +8,7 @@ export function FinalCta() {
     <section className="section-pad brushed-steel bg-brand-primary">
       <div className="container-page">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
             Ready to get your parts made?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-brand-mist">

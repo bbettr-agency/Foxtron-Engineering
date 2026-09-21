@@ -29,7 +29,7 @@ export function SectionHeading({
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
       <h2
         className={cn(
-          "mt-3 text-3xl font-bold leading-[1.08] tracking-tight md:text-4xl lg:text-5xl",
+          "mt-3 text-3xl font-semibold leading-[1.08] tracking-tight md:text-4xl lg:text-5xl",
           tone === "light" ? "text-white" : "text-brand-ink",
         )}
       >

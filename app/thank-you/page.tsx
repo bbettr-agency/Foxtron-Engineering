@@ -15,7 +15,7 @@ export default function ThankYouPage() {
       <div className="container-page">
         <div className="mx-auto max-w-xl text-center">
           <CheckCircle2 size={56} className="mx-auto text-success" aria-hidden />
-          <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-brand-ink md:text-4xl">
+          <h1 className="mt-6 text-3xl font-semibold tracking-tight text-brand-ink md:text-4xl">
             Thank you — we&apos;ve got your request
           </h1>
           <p className="mt-4 text-lg text-brand-graphite">

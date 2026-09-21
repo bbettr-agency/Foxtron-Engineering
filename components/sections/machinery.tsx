@@ -35,7 +35,7 @@ export function Machinery() {
                 />
               </LaserReveal>
               <div className="mt-4 flex items-baseline gap-3">
-                <span className="text-xs font-bold tabular-nums text-brand-accent">
+                <span className="text-xs font-semibold tabular-nums text-brand-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="text-lg font-semibold text-white">{it.name}</h3>

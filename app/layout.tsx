@@ -10,7 +10,7 @@ import { JsonLd } from "@/components/ui/json-ld";
 import { rootMetadata } from "@/lib/metadata";
 import { localBusinessSchema } from "@/lib/schema";
 
-const display = Sora({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["600", "700", "800"] });
+const display = Sora({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["400", "500", "600"] });
 const body = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = rootMetadata();

@@ -41,7 +41,7 @@ export function Process() {
                 transition={{ duration: 0.6, ease: EASE, delay: i * 0.18 }}
               >
                 <m.span
-                  className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand-accent bg-white text-sm font-bold text-brand-accentDark"
+                  className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand-accent bg-white text-sm font-semibold text-brand-accentDark"
                   initial={{ scale: 0.6, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={viewportOnce}

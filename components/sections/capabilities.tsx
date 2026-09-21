@@ -51,7 +51,7 @@ export function Capabilities() {
                 <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accentLight">
                   {String(active + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
                 </span>
-                <h3 className="mt-2 text-2xl font-bold text-white">{activeService.name}</h3>
+                <h3 className="mt-2 text-2xl font-semibold text-white">{activeService.name}</h3>
                 <p className="mt-2 max-w-sm text-sm text-brand-mist">{activeService.summary}</p>
               </div>
             </div>
@@ -71,7 +71,7 @@ export function Capabilities() {
                 >
                   <span
                     className={cn(
-                      "text-lg font-bold tabular-nums transition-colors",
+                      "text-lg font-semibold tabular-nums transition-colors",
                       isActive ? "text-brand-accent" : "text-brand-steel/50",
                     )}
                   >

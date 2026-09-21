@@ -13,7 +13,7 @@ import { EASE, stagger, fadeUp } from "@/components/motion/anim";
 
 const proofPoints = [
   "In-house laser, bending, welding & assembly",
-  "One-off prototypes to full production runs",
+  "Prototypes to full production runs",
   "Serving business across Gauteng since 1992",
 ];
 
@@ -31,7 +31,7 @@ export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.65]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.7]);
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-brand-ink">
@@ -39,15 +39,17 @@ export function Hero() {
       <m.div style={{ y: imgY }} className="absolute inset-0 -bottom-24">
         <ImageSlot image={hero.main} priority sizes="100vw" className="h-full w-full" />
       </m.div>
+      {/* Symmetric scrim so centered text reads cleanly over the middle */}
       <m.div style={{ opacity: overlayOpacity }} className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/85 to-brand-ink/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-transparent to-brand-ink/30" />
+        <div className="absolute inset-0 bg-brand-ink/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-ink/70 via-transparent to-brand-ink/90" />
+        <div className="absolute inset-0 [background:radial-gradient(ellipse_60%_60%_at_center,transparent_35%,rgba(14,20,24,0.6)_100%)]" />
       </m.div>
 
-      <div className="container-page relative flex min-h-[92vh] flex-col justify-center pt-28 pb-16 md:min-h-screen">
-        <div className="max-w-2xl">
+      <div className="container-page relative flex min-h-[90vh] flex-col justify-center pt-28 pb-16 text-center md:min-h-screen">
+        <div className="mx-auto max-w-3xl">
           <m.p
-            className="eyebrow"
+            className="eyebrow eyebrow--center"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
@@ -59,11 +61,11 @@ export function Hero() {
             as="h1"
             text="Precision sheet metal fabrication, built for"
             highlight="industry."
-            className="mt-5 text-4xl font-extrabold leading-[1.02] tracking-tight text-white md:text-6xl lg:text-7xl"
+            className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white md:text-6xl lg:text-[4.25rem]"
           />
 
           <m.p
-            className="mt-6 max-w-xl text-lg leading-relaxed text-brand-mist"
+            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-brand-mist md:text-lg"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
@@ -72,24 +74,23 @@ export function Hero() {
             single prototype to full production runs. {site.rfqResponse}
           </m.p>
 
+          {/* centered proof row */}
           <m.ul
-            className="mt-8 space-y-2.5"
+            className="mt-8 flex flex-col items-center justify-center gap-x-7 gap-y-2.5 text-sm text-brand-mist sm:flex-row sm:flex-wrap"
             variants={stagger(0.1, 0.6)}
             initial="hidden"
             animate="show"
           >
             {proofPoints.map((p) => (
-              <m.li key={p} variants={fadeUp} className="flex items-center gap-3 text-sm text-brand-mist md:text-base">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-accent/20">
-                  <Check size={13} className="text-brand-accentLight" aria-hidden />
-                </span>
+              <m.li key={p} variants={fadeUp} className="flex items-center gap-2.5">
+                <Check size={16} className="shrink-0 text-brand-accentLight" aria-hidden />
                 {p}
               </m.li>
             ))}
           </m.ul>
 
           <m.div
-            className="mt-10 flex flex-col gap-3 sm:flex-row"
+            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 1 }}
@@ -106,7 +107,7 @@ export function Hero() {
 
         {/* Scroll cue */}
         <m.div
-          className="absolute bottom-28 left-1/2 hidden -translate-x-1/2 lg:block"
+          className="absolute bottom-24 left-1/2 hidden -translate-x-1/2 lg:block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4, duration: 0.8 }}

@@ -26,7 +26,7 @@ export function StatsBar() {
               viewport={viewportOnce}
               transition={{ duration: 0.7, ease: EASE, delay: i * 0.1 + 0.15 }}
             />
-            <div className="text-4xl font-extrabold tracking-tight text-brand-ink md:text-5xl">
+            <div className="text-4xl font-semibold tracking-tight text-brand-ink md:text-5xl">
               {"displayValue" in s && s.displayValue ? (
                 s.displayValue
               ) : (
