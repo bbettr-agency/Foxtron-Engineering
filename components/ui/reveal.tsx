@@ -3,7 +3,7 @@
 import { m } from "framer-motion";
 import type { ReactNode } from "react";
 
-/** Section reveal — OS converged values (0.7s, y 24→0, once). Respects reduced-motion via CSS. */
+/** Section reveal – OS converged values (0.7s, y 24→0, once). Respects reduced-motion via CSS. */
 export function Reveal({
   children,
   className,

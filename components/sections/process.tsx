@@ -12,7 +12,7 @@ export function Process() {
         <SectionHeading
           eyebrow="How it works"
           title="From drawing to delivery"
-          body="A simple, fast route from enquiry to finished parts — designed to get you an accurate quote and a reliable turnaround."
+          body="A simple, fast route from enquiry to finished parts – designed to get you an accurate quote and a reliable turnaround."
         />
 
         <div className="relative mt-16">

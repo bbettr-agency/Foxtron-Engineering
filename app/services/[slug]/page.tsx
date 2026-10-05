@@ -23,7 +23,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!service) return {};
   return buildMetadata({
     title: `${service.name} in Centurion`,
-    description: `${service.summary} Foxtron Engineering — request a quote across Gauteng.`,
+    description: `${service.summary} Request a quote across Gauteng.`.slice(0, 155),
     path: `/services/${service.slug}`,
   });
 }
@@ -84,7 +84,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   </tbody>
                 </table>
                 <p className="bg-brand-bone px-4 py-2 text-xs text-brand-steel">
-                  Guide figures — send your part and we&apos;ll confirm exact capacity.
+                  Guide figures – send your part and we&apos;ll confirm exact capacity.
                 </p>
               </div>
             )}

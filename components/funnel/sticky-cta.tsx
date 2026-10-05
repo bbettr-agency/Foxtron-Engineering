@@ -3,7 +3,7 @@
 import { Phone, FileText } from "lucide-react";
 import { cta } from "@/config/site-config";
 
-/** Sticky mobile action bar — Call · Request a Quote. Hidden on lg+. */
+/** Sticky mobile action bar – Call · Request a Quote. Hidden on lg+. */
 export function StickyCta() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-brand-mist bg-white/95 backdrop-blur lg:hidden">

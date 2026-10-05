@@ -1,23 +1,23 @@
 /**
- * SITE CONFIG — Foxtron Engineering
+ * SITE CONFIG – Foxtron Engineering
  * Business details, contact channels, navigation, CTAs. Single source of truth.
  *
  * Fact tags: [verified] live site · [client-stated] asserted, confirm · [assumed] inference.
- * Nothing marked [assumed] should ship as fact — confirm with client first.
+ * Nothing marked [assumed] should ship as fact – confirm with client first.
  */
 
 export const site = {
   name: "Foxtron Engineering",
-  legalName: "Foxtron Engineering", // [client-stated] confirm registered entity
+  legalName: "Foxtron Engineering (Pty) Ltd", // [verified] ISO cert – reg 2020/543748/07
   // 5-second promise
   tagline: "Precision sheet metal fabrication, built for industry",
   descriptionShort:
-    "Laser cutting, CNC bending and metal fabrication in Centurion — from one-off prototypes to full production runs.",
+    "Laser cutting, CNC bending and metal fabrication in Centurion – from one-off prototypes to full production runs.",
   foundedYear: 1992, // [client-stated] confirm (legacy site said "29 years")
   url: "https://www.foxtronengineering.co.za", // confirm www vs non-www at launch
   ogLocale: "en_ZA",
 
-  // ── Contact [verified from live site — confirm canonical NAP] ──
+  // ── Contact [verified from live site – confirm canonical NAP] ──
   contact: {
     phoneDisplay: "012 666 9933",
     phoneHref: "tel:+27126669933",
@@ -34,7 +34,7 @@ export const site = {
     country: "South Africa",
     countryCode: "ZA",
     mapQuery: "Foxtron Engineering, 46 Rowan Nook, Sunderland Ridge, Centurion",
-    // [assumed] approx coords for Sunderland Ridge — replace with exact GBP pin
+    // [assumed] approx coords for Sunderland Ridge – replace with exact GBP pin
     geo: { lat: -25.8543, lng: 28.1462 },
   },
 
@@ -58,7 +58,7 @@ export const site = {
     linkedin: "",
   },
 
-  // RFQ response commitment — confirm with client before publishing the SLA
+  // RFQ response commitment – confirm with client before publishing the SLA
   rfqResponse: "We respond to every RFQ within 1 business day.", // [client-stated] confirm
 
   // Agency credit (OS standing rule)

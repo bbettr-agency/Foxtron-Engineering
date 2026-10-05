@@ -25,7 +25,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Get in touch with Foxtron"
-        body="Call, email or request a quote — we're here Monday to Friday and respond fast."
+        body="Call, email or request a quote – we're here Monday to Friday and respond fast."
         crumbs={crumbs}
       />
 

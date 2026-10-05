@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 /** Brand wordmark. SVG served directly (no raster optimization needed). */
 export function Logo({ className, invert = false }: { className?: string; invert?: boolean }) {
   return (
-    <Link href="/" aria-label="Foxtron Engineering — home" className="inline-flex items-center">
+    <Link href="/" aria-label="Foxtron Engineering – home" className="inline-flex items-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={logo.primary.src}

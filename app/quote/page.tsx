@@ -15,7 +15,7 @@ const crumbs = [
 ];
 
 const reassurance = [
-  "Upload your DXF, DWG, STEP or PDF — or just describe the job",
+  "Upload your DXF, DWG, STEP or PDF – or just describe the job",
   "For businesses, OEMs and trade",
   site.rfqResponse,
 ];

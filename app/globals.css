@@ -51,12 +51,12 @@
   .eyebrow {
     @apply inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-brand-accent md:text-sm;
   }
-  /* Cut-line tick before an eyebrow — nods to laser cutting. */
+  /* Cut-line tick before an eyebrow – nods to laser cutting. */
   .eyebrow::before {
     content: "";
     @apply inline-block h-px w-8 bg-brand-accent;
   }
-  /* Centered eyebrow — symmetric ticks on both sides. */
+  /* Centered eyebrow – symmetric ticks on both sides. */
   .eyebrow--center::after {
     content: "";
     @apply inline-block h-px w-8 bg-brand-accent;
@@ -75,7 +75,7 @@
       );
   }
 
-  /* Rivet/bolt dots echoing the fox-plate logo — decorative corners. */
+  /* Rivet/bolt dots echoing the fox-plate logo – decorative corners. */
   .rivets::before,
   .rivets::after {
     content: "";
@@ -95,6 +95,18 @@
   /* Animated hairline rule that "draws" across. */
   .cut-rule {
     @apply relative h-px w-full bg-brand-mist;
+  }
+
+  /* Hero headline entrance – transform only (opacity stays 1 so LCP is never gated). */
+  @keyframes heroRise {
+    from { transform: translateY(0.3em); }
+    to { transform: none; }
+  }
+  .hero-title {
+    animation: heroRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-title { animation: none; }
   }
 }
 

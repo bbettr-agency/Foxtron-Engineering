@@ -1,9 +1,9 @@
-import { Check } from "lucide-react";
+import { Check, FileText } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { ImageSlot } from "@/components/ui/image-slot";
 import { quality } from "@/config/content-config";
-import { certifications } from "@/config/images";
+import { certifications, certificatePdf } from "@/config/images";
 
 export function Quality() {
   return (
@@ -21,12 +21,29 @@ export function Quality() {
               </li>
             ))}
           </ul>
+          <a
+            href={certificatePdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-accentDark hover:text-brand-accent"
+          >
+            <FileText size={16} aria-hidden />
+            View our ISO 9001 certificate
+          </a>
         </div>
 
-        <Reveal className="mx-auto w-full max-w-sm">
-          <div className="rounded-3xl bg-brand-bone p-4 shadow-card ring-1 ring-brand-mist">
-            <ImageSlot image={certifications.iso9001} sizes="(max-width:1024px) 100vw, 400px" className="w-full rounded-2xl" fit="contain" />
-            <p className="mt-3 text-center text-xs text-brand-steel">ISO 9001 certificate available on request.</p>
+        <Reveal className="mx-auto w-full max-w-md">
+          <div className="rounded-3xl bg-brand-bone p-8 shadow-card ring-1 ring-brand-mist md:p-10">
+            <ImageSlot
+              image={certifications.assuranceMark}
+              sizes="(max-width:1024px) 90vw, 420px"
+              className="w-full"
+              fit="contain"
+            />
+            <div className="mt-6 border-t border-brand-mist pt-5 text-center">
+              <p className="text-sm font-semibold text-brand-ink">Certificate {quality.certNumber}</p>
+              <p className="mt-0.5 text-xs text-brand-steel">Issued by AfriCert · valid to {quality.certValidTo}</p>
+            </div>
           </div>
         </Reveal>
       </div>

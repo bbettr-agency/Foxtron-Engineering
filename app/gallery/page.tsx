@@ -21,7 +21,7 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Our work"
         title="Inside the Foxtron workshop"
-        body="Machinery, processes and finished parts — photographed on our floor in Sunderland Ridge, Centurion."
+        body="Machinery, processes and finished parts – photographed on our floor in Sunderland Ridge, Centurion."
         crumbs={crumbs}
         image={factory.floor1}
       />

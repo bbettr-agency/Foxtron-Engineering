@@ -4,7 +4,7 @@ import { ImageSlot } from "@/components/ui/image-slot";
 import { galleryCategories } from "@/config/images";
 import { cn } from "@/lib/utils";
 
-/** Full gallery — every category, each an anchored section. */
+/** Full gallery – every category, each an anchored section. */
 export function GalleryGrid() {
   return (
     <>

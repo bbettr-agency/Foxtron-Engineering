@@ -23,7 +23,7 @@ export function Capabilities() {
         <SectionHeading
           eyebrow="What we do"
           title="Everything you need, under one roof"
-          body="Cut, bend, punch, weld, assemble and finish — a complete in-house workflow means tighter quality control and faster turnaround, with no outsourcing delays."
+          body="Cut, bend, punch, weld, assemble and finish – a complete in-house workflow means tighter quality control and faster turnaround, with no outsourcing delays."
         />
 
         {/* Desktop: interactive spotlight */}

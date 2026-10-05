@@ -6,7 +6,7 @@ import { ImageSlot } from "@/components/ui/image-slot";
 import { ButtonLink } from "@/components/ui/button";
 import { galleryPreview } from "@/config/images";
 
-/** Homepage "Our Work" preview — one representative image per gallery category. */
+/** Homepage "Our Work" preview – one representative image per gallery category. */
 export function GalleryPreview() {
   return (
     <section id="gallery" className="section-pad bg-brand-bone">
@@ -15,7 +15,7 @@ export function GalleryPreview() {
           <SectionHeading
             eyebrow="Our work"
             title="Inside the Foxtron workshop"
-            body="Real machinery, real processes, real parts — photographed on our floor in Sunderland Ridge, Centurion."
+            body="Real machinery, real processes, real parts – photographed on our floor in Sunderland Ridge, Centurion."
           />
           <Reveal>
             <ButtonLink href="/gallery" variant="ghost" size="md">

@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
  * The webhook URL is a SERVER-side env var (never exposed to the client).
  * If unset (local/preview), we log and return ok so the form still works.
  *
- * NOTE: file BINARIES are not forwarded here — only the file name is captured.
+ * NOTE: file BINARIES are not forwarded here – only the file name is captured.
  * Wiring real drawing uploads (GHL media / object storage + URL in payload) is a
  * follow-up documented in PROJECT_STATUS.md.
  */
@@ -26,8 +26,8 @@ export async function POST(request: Request) {
 
   const webhook = process.env.GHL_WEBHOOK_URL;
   if (!webhook) {
-    // Demo mode — no webhook configured yet.
-    console.info("[RFQ] No GHL_WEBHOOK_URL set — logging submission:", {
+    // Demo mode – no webhook configured yet.
+    console.info("[RFQ] No GHL_WEBHOOK_URL set – logging submission:", {
       company,
       email,
       processes: payload.processes,

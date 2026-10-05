@@ -1,10 +1,10 @@
 /**
- * CENTRALIZED IMAGE MANIFEST — Foxtron Engineering
+ * CENTRALIZED IMAGE MANIFEST – Foxtron Engineering
  * ------------------------------------------------------------------
  * The SINGLE source of truth for every image on the site. Components must
- * import from here — never hardcode an image path in a component.
+ * import from here – never hardcode an image path in a component.
  *
- * Images are redistributed across SECTIONS here, in config — the folder a file
+ * Images are redistributed across SECTIONS here, in config – the folder a file
  * was uploaded into does NOT dictate where it is used. Client originals in
  * /public/images/factory and /public/images/team are never renamed or moved;
  * we simply reference them by their real path and let next/image optimize +
@@ -42,7 +42,7 @@ const slot = (
   alt: string,
 ): ManagedImage => ({ src, width, height, label, alt, status: "pending" });
 
-/** ready image — real client file assigned. */
+/** ready image – real client file assigned. */
 const ready = (
   src: string,
   width: number,
@@ -54,20 +54,20 @@ const ready = (
 // ── Brand ───────────────────────────────────────────────────────────────────
 export const logo = {
   primary: ready("/images/logo/foxtron-logo.svg", 300, 50, "Foxtron logo", "Foxtron Engineering"),
-  // No reversed/white variant supplied — invert `primary` via CSS on dark surfaces until one exists.
+  // No reversed/white variant supplied – invert `primary` via CSS on dark surfaces until one exists.
   white: slot("/images/logo/foxtron-logo-white.svg", 300, 50, "Foxtron logo (white)", "Foxtron Engineering"),
-  // No square icon/monogram supplied — the wordmark is too wide to crop to a favicon. Needs a square mark.
+  // No square icon/monogram supplied – the wordmark is too wide to crop to a favicon. Needs a square mark.
   icon: slot("/images/logo/foxtron-icon.svg", 512, 512, "Foxtron icon", "Foxtron Engineering icon"),
 } as const;
 
 // ── Hero (LCP) ───────────────────────────────────────────────────────────────
 export const hero = {
-  // Branded operator at the fiber laser cell — cinematic, on-brand, back-to-camera.
+  // Branded operator at the fiber laser cell – cinematic, on-brand, back-to-camera.
   main: ready(
     "/images/factory/Untitled-23022.jpg",
     1920,
     1080,
-    "Hero — laser cutting in action",
+    "Hero – laser cutting in action",
     "Foxtron Engineering operator running the fiber laser cutter at the Centurion workshop",
   ),
   // Reuses `main` (object-cover) on mobile until a dedicated portrait crop is produced.
@@ -86,13 +86,13 @@ export const factory = {
 export const machinery = {
   laser: ready("/images/factory/Untitled-23047.jpg", 1200, 900, "Fiber laser cutter", "Foxtron Engineering fiber laser cutting machine"),
   pressBrake: ready("/images/factory/Untitled-23118.jpg", 1200, 900, "CNC press brakes", "Trumpf TruBend CNC press brakes for sheet metal bending at Foxtron Engineering"),
-  // No dedicated turret-punch photo supplied — using an authentic wide view of the
+  // No dedicated turret-punch photo supplied – using an authentic wide view of the
   // CNC production floor. Alt text describes what is actually shown.
   punch: ready("/images/factory/Untitled-23127.jpg", 1200, 900, "CNC punch", "CNC machinery on the Foxtron Engineering production floor"),
-  // No CNC mill/lathe photo supplied — using a genuine finishing-process photo.
+  // No CNC mill/lathe photo supplied – using a genuine finishing-process photo.
   machining: ready("/images/factory/Untitled-23093.jpg", 1200, 900, "Machining & finishing", "Finishing a fabricated sheet metal component at Foxtron Engineering"),
   welding: ready("/images/factory/Untitled-23101.jpg", 1200, 900, "Welding equipment", "MIG/TIG welding equipment at the Foxtron Engineering welding bay"),
-  // Only a single context shot of rolling exists — usable but not a strong solo machine photo.
+  // Only a single context shot of rolling exists – usable but not a strong solo machine photo.
   rolling: ready("/images/factory/Untitled-23102.jpg", 1200, 900, "Roll work", "Roll work and forming in the Foxtron Engineering workshop"),
 } as const;
 
@@ -111,33 +111,35 @@ interface ServiceImagePair {
 
 export const services: Record<ServiceSlug, ServiceImagePair> = {
   "laser-cutting": {
-    hero: ready("/images/factory/Untitled-23011.jpg", 1600, 1067, "Laser cutting — hero", "Fiber laser cutting head cutting sheet metal with sparks at Foxtron Engineering"),
-    detail: ready("/images/factory/Untitled-23010.jpg", 1200, 900, "Laser cutting — detail", "Close-up of the fiber laser cutting head over a nested sheet"),
+    hero: ready("/images/factory/Untitled-23011.jpg", 1600, 1067, "Laser cutting – hero", "Fiber laser cutting head cutting sheet metal with sparks at Foxtron Engineering"),
+    detail: ready("/images/factory/Untitled-23010.jpg", 1200, 900, "Laser cutting – detail", "Close-up of the fiber laser cutting head over a nested sheet"),
   },
   "cnc-bending": {
-    hero: ready("/images/factory/Untitled-23126.jpg", 1600, 1067, "CNC bending — hero", "Operators folding a large sheet metal panel on a Bystronic CNC press brake"),
-    detail: ready("/images/factory/Untitled-23128.jpg", 1200, 900, "CNC bending — detail", "Operator at the CNC press brake control panel during a bending job"),
+    hero: ready("/images/factory/Untitled-23126.jpg", 1600, 1067, "CNC bending – hero", "Operators folding a large sheet metal panel on a Bystronic CNC press brake"),
+    detail: ready("/images/factory/Untitled-23128.jpg", 1200, 900, "CNC bending – detail", "Operator at the CNC press brake control panel during a bending job"),
   },
   "cnc-punching": {
-    // No CNC punching photography supplied.
-    hero: slot("/images/services/cnc-punching/cnc-punching-hero.jpg", 1600, 1067, "CNC punching — hero", "CNC punching machine forming sheet metal components"),
-    detail: slot("/images/services/cnc-punching/cnc-punching-detail.jpg", 1200, 900, "CNC punching — detail", "Punched sheet metal component detail"),
+    // No dedicated turret-punch photo supplied – using authentic CNC sheet-metal
+    // machinery + a real perforated/punched sheet component. Alt text stays honest.
+    hero: ready("/images/factory/Untitled-23127.jpg", 1600, 1067, "CNC punching – hero", "CNC sheet metal machinery on the Foxtron Engineering production floor"),
+    detail: ready("/images/factory/Untitled-23131.jpg", 1200, 900, "CNC punching – detail", "Perforated sheet metal components at Foxtron Engineering"),
   },
   "welding-assembly": {
-    hero: ready("/images/factory/Untitled-23077.jpg", 1600, 1067, "Welding & assembly — hero", "Welding a steel tube frame under spotlight at the Foxtron Engineering assembly bench"),
-    detail: ready("/images/factory/Untitled-23095.jpg", 1200, 900, "Welding & assembly — detail", "Grinding and finishing a fabricated sheet metal enclosure with sparks"),
+    hero: ready("/images/factory/Untitled-23077.jpg", 1600, 1067, "Welding & assembly – hero", "Welding a steel tube frame under spotlight at the Foxtron Engineering assembly bench"),
+    detail: ready("/images/factory/Untitled-23095.jpg", 1200, 900, "Welding & assembly – detail", "Grinding and finishing a fabricated sheet metal enclosure with sparks"),
   },
   machining: {
-    // No CNC mill/lathe machining photography supplied.
-    hero: slot("/images/services/machining/machining-hero.jpg", 1600, 1067, "Machining — hero", "CNC machining of a metal component"),
-    detail: slot("/images/services/machining/machining-detail.jpg", 1200, 900, "Machining — detail", "Machined metal part detail"),
+    // "Machining & finishing" – authentic finishing / surface-treatment photos
+    // (matches the certified scope: surface treatment). No false "mill/lathe" claims.
+    hero: ready("/images/factory/Untitled-23093.jpg", 1600, 1067, "Machining & finishing – hero", "Finishing a fabricated sheet metal component at Foxtron Engineering"),
+    detail: ready("/images/factory/Untitled-23085.jpg", 1200, 900, "Machining & finishing – detail", "Grinding and finishing a fabricated metal part"),
   },
 };
 
 // Finished parts/portfolio imagery now lives in the "Finished Work" gallery
-// category below (single source — no duplicate projects list).
+// category below (single source – no duplicate projects list).
 
-// ── Gallery categories — the /gallery page + homepage preview ────────────────
+// ── Gallery categories – the /gallery page + homepage preview ────────────────
 // All authentic uploaded Foxtron photography, grouped by what the image shows.
 export interface GalleryCategory {
   slug: string;
@@ -153,7 +155,7 @@ export const galleryCategories: GalleryCategory[] = [
   {
     slug: "machinery",
     name: "Machinery",
-    blurb: "The CNC equipment behind every job — laser, press brakes, welding and forming.",
+    blurb: "The CNC equipment behind every job – laser, press brakes, welding and forming.",
     images: [
       g("Untitled-23047.jpg", "Fibre laser cutter", "Fibre laser cutting machine at Foxtron Engineering"),
       g("Untitled-23117.jpg", "Fibre laser machine", "Fibre laser cutting machine on the Foxtron workshop floor"),
@@ -168,7 +170,7 @@ export const galleryCategories: GalleryCategory[] = [
   {
     slug: "laser-cutting",
     name: "Laser Cutting",
-    blurb: "Fibre laser cutting in action — clean edges across steel, stainless and aluminium.",
+    blurb: "Fibre laser cutting in action – clean edges across steel, stainless and aluminium.",
     images: [
       g("Untitled-23011.jpg", "Cutting with sparks", "Fibre laser cutting head cutting sheet metal with sparks"),
       g("Untitled-23010.jpg", "Cutting head", "Close-up of the fibre laser cutting head over a nested sheet"),
@@ -183,7 +185,7 @@ export const galleryCategories: GalleryCategory[] = [
   {
     slug: "cnc-bending",
     name: "CNC Bending",
-    blurb: "Press-brake folding — accurate, repeatable angles from prototype to production.",
+    blurb: "Press-brake folding – accurate, repeatable angles from prototype to production.",
     images: [
       g("Untitled-23126.jpg", "Folding a panel", "Operators folding a large sheet metal panel on a CNC press brake"),
       g("Untitled-23125.jpg", "Bending in progress", "Bending a large panel on the Bystronic press brake"),
@@ -196,7 +198,7 @@ export const galleryCategories: GalleryCategory[] = [
   {
     slug: "welding-assembly",
     name: "Welding & Assembly",
-    blurb: "MIG and TIG welding, fabrication and fitting — parts finished ready to use.",
+    blurb: "MIG and TIG welding, fabrication and fitting – parts finished ready to use.",
     images: [
       g("Untitled-23077.jpg", "Tube frame welding", "Welding a steel tube frame at the assembly bench"),
       g("Untitled-23067.jpg", "Live arc", "Welder mid-arc with sparks on a fabricated part"),
@@ -211,10 +213,10 @@ export const galleryCategories: GalleryCategory[] = [
   {
     slug: "factory",
     name: "Factory",
-    blurb: "Inside the Sunderland Ridge workshop — the floor, the space and the team at work.",
+    blurb: "Inside the Sunderland Ridge workshop – the floor, the space and the team at work.",
     images: [
-      g("Untitled-23046.jpg", "Workshop floor", "The Foxtron Engineering workshop floor"),
-      g("Untitled-23083.jpg", "Workshop bay", "Wide view of the Foxtron fabrication workshop"),
+      g("Untitled-23082.jpg", "Workshop bay", "Forklift moving through the Foxtron Engineering workshop"),
+      g("Untitled-23083.jpg", "Workshop floor", "Wide view of the Foxtron fabrication workshop"),
       g("Untitled-23016.jpg", "Laser cell", "The fibre laser cutting cell in the workshop"),
       g("Untitled-23018.jpg", "Production floor", "The Foxtron production floor in daylight"),
       g("Untitled-23092.jpg", "The workshop", "Wide view of the Foxtron Engineering workshop and roller doors"),
@@ -226,7 +228,7 @@ export const galleryCategories: GalleryCategory[] = [
   {
     slug: "finished-work",
     name: "Finished Work",
-    blurb: "Real parts and assemblies — laser-cut, folded, welded and finished in Centurion.",
+    blurb: "Real parts and assemblies – laser-cut, folded, welded and finished in Centurion.",
     images: [
       g("Untitled-23098.jpg", "Fabricated enclosure", "Completed fabricated sheet metal housing with machined bore"),
       g("Untitled-23028.jpg", "Laser-cut bracket", "Laser-cut steel bracket with precision bore"),
@@ -243,7 +245,7 @@ export const galleryCategories: GalleryCategory[] = [
 /** Flat list of every gallery image. */
 export const galleryAll: ManagedImage[] = galleryCategories.flatMap((c) => c.images);
 
-/** One representative image per category — used by the homepage preview. */
+/** One representative image per category – used by the homepage preview. */
 export const galleryPreview = galleryCategories.map((c) => ({
   slug: c.slug,
   name: c.name,
@@ -256,10 +258,9 @@ export const galleryPreview = galleryCategories.map((c) => ({
 // 7 studio portraits supplied; identities NOT yet confirmed by the client, so
 // named-leader slots stay pending (we will not label a face with an unverified
 // name). Until then, `teamRoster` holds all 7 as an un-named team grid.
+// Identities not published without client confirmation – individual portraits
+// are shown unnamed via `teamRoster`. Only the group photo is keyed here.
 export const team = {
-  anton: slot("/images/team/anton-lubbe.jpg", 800, 1000, "Anton Lubbe", "Anton Lubbe, Director & Shareholder at Foxtron Engineering"),
-  monica: slot("/images/team/monica-kruger.jpg", 800, 1000, "Monica Kruger", "Monica Kruger, Managing Director at Foxtron Engineering"),
-  karl: slot("/images/team/karl-lubbe.jpg", 800, 1000, "Karl Lubbe", "Karl Lubbe, Production Director at Foxtron Engineering"),
   group: ready("/images/factory/Untitled-23111.jpg", 1600, 1067, "The Foxtron team", "The Foxtron Engineering team at the Centurion workshop"),
 } as const;
 
@@ -276,9 +277,16 @@ export const teamRoster: ManagedImage[] = [
 
 // ── Certifications (real ISO certificate still required) ─────────────────────
 export const certifications = {
-  iso9001: slot("/images/certifications/iso-9001-certificate.jpg", 1240, 1754, "ISO 9001 certificate", "Foxtron Engineering ISO 9001 quality management certificate"),
-  iso9001Badge: slot("/images/certifications/iso-9001-badge.svg", 512, 512, "ISO 9001", "ISO 9001 certified"),
+  // Full ISO 9001:2015 certificate (AfriCert) – square SVG canvas, shown object-contain.
+  iso9001: ready("/images/certifications/iso-9001.svg", 1000, 1000, "ISO 9001:2015 certificate", "Foxtron Engineering (Pty) Ltd ISO 9001:2015 certificate issued by AfriCert, certificate number 2024042201"),
+  // Assurance mark badge (black on light surfaces).
+  assuranceMark: ready("/images/certifications/foxtron-assurance-mark-black.png", 1709, 880, "ISO 9001 Quality Management", "ISO 9001 Quality Management assurance mark – AfriCert Certification and Assurance, certificate 2024042201"),
+  // White variant for dark surfaces.
+  assuranceMarkWhite: ready("/images/certifications/foxtron-assurance-mark-white.png", 1709, 880, "ISO 9001 Quality Management", "ISO 9001 Quality Management assurance mark (white) – AfriCert Certification and Assurance"),
 } as const;
+
+/** Path to the downloadable certificate (not an image slot). */
+export const certificatePdf = "/images/certifications/foxtron-iso-9001-certificate.pdf";
 
 // ── Gallery (general work photography) ───────────────────────────────────────
 export const gallery: ManagedImage[] = [
@@ -292,11 +300,11 @@ export const gallery: ManagedImage[] = [
 
 // ── Open Graph (produced by us; compose from logo + a workshop photo) ────────
 export const og = {
-  default: slot("/images/og/og-default.jpg", 1200, 630, "OG default", "Foxtron Engineering — precision sheet metal fabrication"),
-  home: slot("/images/og/og-home.jpg", 1200, 630, "OG home", "Foxtron Engineering — precision sheet metal fabrication in Centurion"),
+  default: ready("/images/og/og-default.jpg", 1200, 630, "OG default", "Foxtron Engineering – precision sheet metal fabrication"),
+  home: ready("/images/og/og-home.jpg", 1200, 630, "OG home", "Foxtron Engineering – precision sheet metal fabrication in Centurion"),
 } as const;
 
-/** Flat registry — useful for audits ("which images are still pending?"). */
+/** Flat registry – useful for audits ("which images are still pending?"). */
 export const allImages: ManagedImage[] = [
   ...Object.values(logo),
   ...Object.values(hero),

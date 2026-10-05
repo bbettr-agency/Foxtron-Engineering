@@ -1,5 +1,5 @@
 /**
- * ImageSlot — the single primitive for rendering managed images.
+ * ImageSlot – the single primitive for rendering managed images.
  *
  * Feed it an entry from `config/images.ts`:
  *   - status "ready" → renders the real optimized <Image> (next/image).
@@ -7,7 +7,7 @@
  *     the layout is reserved (no CLS) and nothing looks broken before the
  *     client uploads real photography.
  *
- * Components must NOT reference raw image paths — always go through here + config.
+ * Components must NOT reference raw image paths – always go through here + config.
  */
 
 import Image from "next/image";

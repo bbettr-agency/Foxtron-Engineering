@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { EASE } from "@/components/motion/anim";
 
 /**
- * Reveals its children with a clip-path wipe — like a cut opening across the
+ * Reveals its children with a clip-path wipe – like a cut opening across the
  * image. A thin accent "cut line" travels ahead of the wipe. Reduced-motion
  * users just see the final image (no wipe).
  */

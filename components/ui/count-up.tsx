@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/** Count-up stat — triggers once on view. Falls back to final value with reduced motion. */
+/** Count-up stat – triggers once on view. Falls back to final value with reduced motion. */
 export function CountUp({
   value,
   suffix = "",

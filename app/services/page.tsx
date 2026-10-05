@@ -23,7 +23,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Our capabilities"
         title="In-house fabrication, end to end"
-        body="Laser cutting, CNC bending, punching, welding, assembly and finishing — a complete workflow under one roof in Centurion."
+        body="Laser cutting, CNC bending, punching, welding, assembly and finishing – a complete workflow under one roof in Centurion."
         crumbs={crumbs}
         image={hero.main}
       />

@@ -1,82 +1,61 @@
 # Project Status — Foxtron Engineering
 
-**Last updated:** 2026-07-13
+**Last updated:** 2026-10-05
 **Owner:** Bbettr Agency
-**Client:** Foxtron Engineering (Sunderland Ridge, Centurion, Gauteng)
-**Type:** Full website (redesign of current GoHighLevel brochure site) · Engineering / metal fabrication
+**Client:** Foxtron Engineering (Pty) Ltd (Sunderland Ridge, Centurion, Gauteng)
+**Type:** Full website (redesign) · Engineering / metal fabrication
 **Repo:** `bbettr-agency/Foxtron-Engineering` · branch `main` · **OS version:** v2.0.0-phase1
-**Live:** not deployed · Local preview: `npm run dev` (port 3000)
+**Live:** not deployed · Local preview: `npm run dev`
 
 ---
 
+## Status: PRE-LAUNCH QA COMPLETE — domain-ready except the GHL webhook
+
+The site passed a full pre-launch QA pass (visual, mobile, images, SEO, a11y, performance,
+links, console). Build + lint + typecheck clean. The ONE remaining launch dependency is the
+GoHighLevel inbound webhook (RFQ currently runs in demo mode).
+
 ## ✅ Complete
 
-- [x] Phase 1 — Research & blueprint. Approved 2026-07-13. → `docs/PHASE-1-BLUEPRINT.md`
-- [x] Image system — folders, README manifest, `config/images.ts`, `ImageSlot` primitive.
-- [x] Image assignment — all 124 factory + 7 team images reviewed; strongest assigned per slot. → `docs/IMAGE-INVENTORY.md`
-- [x] Phase 3 build — Next.js 14 app on pinned OS stack. Build + lint + typecheck all pass; first-load JS ~137KB.
-  - Brand tokens (steel/charcoal + industrial-orange accent) in `tailwind.config.ts`
-  - Config-driven content: site, services, content, faqs, seo configs
-  - Pages: Home, Services hub, Service spokes (laser-cutting, cnc-bending, welding-assembly, cnc-punching), Gallery, About, Quote, Contact, FAQ, Thank-you, 404
-  - Multi-step RFQ form → `/api/rfq` → GHL webhook (demo-mode fallback) → `/thank-you`
-  - Header + mobile nav, footer, sticky mobile CTA bar (Call/Request a Quote)
-  - SEO: per-page metadata + canonical + OG, `sitemap.ts`, `robots.ts`, JSON-LD (LocalBusiness/Service/FAQPage/Breadcrumb)
-  - Verified in browser: desktop + mobile (no horizontal scroll at 360px), no console errors, RFQ path returns ok
+- Phase 1 research & blueprint → `docs/PHASE-1-BLUEPRINT.md`
+- Full build: Home, Services hub + 4 service spokes, Gallery, About, Quote, Contact, FAQ, Thank-you, 404
+- Custom motion system (Lenis smooth scroll, parallax hero, interactive capabilities spotlight,
+  laser-reveal, brushed-steel/rivet motif) — all `prefers-reduced-motion` safe
+- Centered hero + page-heroes; lightened typography (Sora 400/500/600, no weight > 600)
+- **ISO 9001:2015 Quality section** — real AfriCert assurance mark + certificate (cert 2024042201,
+  valid to 21 Apr 2027, SANAS/IAF accredited) + downloadable PDF. [verified from supplied cert]
+- **Images:** every visible slot filled with authentic Foxtron photography; CNC punching + machining
+  use closest honest process photos; team shown unnamed (no identity guessing); OG images + favicon
+  (fox-plate) added. **No visible placeholders. No broken images.**
+- SA en-dash copy throughout; verified facts only (legal name, reg, NAP from the ISO certificate)
 
-## 🔨 In progress
+## QA results (2026-10-05)
 
-- [ ] Awaiting client inputs (below) to finalize copy/proof and deploy.
+| Area | Result |
+|---|---|
+| Build / lint / typecheck | ✅ pass |
+| Lighthouse (home, mobile) | A11y **100** · Best-practices **100** · SEO **100** · Perf **99** (devtools throttle, LCP 2.0s); 87–88 under Lighthouse's pessimistic simulated model |
+| Pending placeholders rendered | **0** on every page |
+| Broken internal links | **0** · broken images **0** |
+| 1 H1 / canonical / OG per page | ✅ all pages |
+| Responsive | ✅ 360 / 390 / 768 / 1440 — no overflow |
+| RFQ form | ✅ multi-step + validation + submit → /thank-you. **Demo mode (no webhook).** |
+| WhatsApp in production | **none** |
+| Industries in production | **none** (replaced by Gallery) |
 
-## ⏳ Pending
+## 🔑 Before go-live / client inputs
 
-- [ ] Favicon + white logo variant (crop the fox-plate mark from the logo for a square icon)
-- [ ] OG/social images (compose from logo + workshop photo)
-- [ ] Google Ads / GTM conversion tracking wiring (event hooks present via `data-analytics`)
-- [ ] Deploy to Vercel from `main`; set `GHL_WEBHOOK_URL`; submit sitemap to Search Console
-- [ ] 301 map for legacy `index.php` URLs (redesign)
+- [ ] **GoHighLevel inbound webhook URL** → set `GHL_WEBHOOK_URL` in Vercel (RFQ is demo-mode until then).
+      File uploads currently capture the file NAME only; binary transfer (GHL media / storage) is a follow-up.
+- [ ] Deploy to Vercel from `main`; connect domain; submit sitemap to Search Console.
+- [ ] `www` vs non-www canonical decision (currently `https://www.foxtronengineering.co.za`).
+- [ ] Confirm "since 1992" heritage (client's own published claim; ISO reg is 2020/543748/07).
+- [ ] Social profile URLs (Facebook/Instagram/LinkedIn) — footer slots ready, currently hidden.
+- [ ] Optional: team member names (portraits shown unnamed until confirmed); exact GBP map pin.
 
-## 🔑 Client-blocked (waiting on client)
+## Notes / decisions
 
-- [ ] **Team identity mapping** — which of `team/Untitled-231xx.jpg` is Anton Lubbe / Monica Kruger / Karl Lubbe (leader cards show placeholders until mapped).
-- [ ] **Real ISO 9001 certificate** (body, number, scope, expiry) — claim currently framed as an "approach"; certificate slot is a placeholder.
-- [ ] **Founding year** confirm (1992 vs legacy "29 years").
-- [ ] **Capability specs** confirm (laser bed + material thicknesses currently [client-stated] from old site).
-- [ ] **Lead-time bands** + RFQ response SLA confirm.
-- [ ] **Canonical NAP** (street/postcode/email) + www vs non-www decision.
-- [ ] **GoHighLevel** inbound webhook URL + workflow + file-upload handling (form sends file NAME only until storage wired).
-- [ ] **Extra imagery**: CNC punching, CNC machining, factory exterior, industry-specific shots (placeholders remain).
-- [ ] **Social profile URLs** (Facebook/Instagram/LinkedIn).
-- [ ] Access: domain, Vercel, GBP, analytics, Google Ads.
-
-## Gate results
-
-| Gate | Status | Date | Notes |
-|---|---|---|---|
-| 1 Research | ✅ passed | 2026-07-13 | Brief approved; claims tagged |
-| 2 Pre-build | ✅ passed | 2026-07-13 | Sitemap, tokens, section plan all mapped to blueprint |
-| 3 Verify | 🟡 partial | 2026-07-13 | build/lint/tsc pass; browser-verified desktop+mobile. TODO: Lighthouse/axe run, real content, favicon/OG |
-| 4 Launch | ⏳ | | pending deploy + client facts |
-
-## Motion / craft pass (2026-09-21)
-
-- Elevated from clean-but-templated to a custom, "alive" feel: parallax hero with
-  word-stagger headline + capability ticker + scroll cue; interactive capabilities
-  spotlight (hover swaps the large image) with mobile card fallback; drawn stat
-  underlines; process connector that draws in; laser-reveal image wipes; brushed-steel
-  texture + rivet motif on dark panels; cut-line eyebrows.
-- **New runtime dep — `lenis` (~4KB, justified):** premium inertial smooth scroll;
-  fully disabled under `prefers-reduced-motion`. Reason logged here per OS discipline.
-- **Bundle discipline:** all motion components use Framer's `LazyMotion` + `m.*` with the
-  `domAnimation` feature set → homepage first-load JS **132KB** (was 156KB before LazyMotion;
-  under the 150KB budget). All routes ≤ 132KB.
-- Verified on the **production** build (`next start`): zero console errors, hover-swap works,
-  no 360/390px overflow, mobile spotlight→cards fallback correct. (Dev-mode showed transient
-  chunk-404/HMR noise after adding Lenis — absent in production.)
-
-## Known notes / decisions
-
-- **No fabrication:** ISO/specs/lead-times/stats framed from verified/client-stated facts only; assumed items gated. Only the 2 genuine Google reviews used. No AggregateRating schema (no countable reviews yet).
-- **Brand tokens** (steel #1F2933 + accent orange #EA580C/#C2410C) await Eloff's explicit sign-off per SYSTEM/01.
-- **RFQ file upload** currently captures filename only — real drawing transport (storage + URL in webhook) is a follow-up.
-- **Images redistributed via config** — client originals in `public/images/factory|team` are untouched; `config/images.ts` points at them.
-- Local preview served via the OS worktree `.claude/launch.json` (`foxtron-dev`) — not committed to this repo.
+- 4 config image slots remain `pending` (logo-white, square-icon-svg, mobile-hero, factory-exterior)
+  — none are rendered anywhere, so there are no visible placeholders.
+- No fabricated facts; ISO/NAP/legal-name now verified from the supplied certificate.
+- Brand tokens (steel + industrial orange) still await Eloff's explicit sign-off per SYSTEM/01.

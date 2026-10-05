@@ -20,7 +20,7 @@ export function Machinery() {
         <SectionHeading
           eyebrow="Our capability"
           title="The machinery behind the work"
-          body="Modern CNC equipment, run by an experienced team — the capacity to take your job from raw sheet to finished, assembled component."
+          body="Modern CNC equipment, run by an experienced team – the capacity to take your job from raw sheet to finished, assembled component."
           tone="light"
         />
 

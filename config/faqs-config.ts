@@ -1,5 +1,5 @@
 /**
- * FAQ CONFIG — Foxtron Engineering
+ * FAQ CONFIG – Foxtron Engineering
  * Answers the industrial buyer's pre-RFQ objections (blueprint §4).
  * Used on the FAQ section + FAQPage schema. Keep answers honest; specifics
  * marked [client-stated] should be confirmed before launch.
@@ -17,7 +17,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Do you take on small jobs and one-offs, or only production runs?",
-    a: "Both. We handle single replacement parts and prototypes right through to full production runs — for businesses, OEMs and trade.",
+    a: "Both. We handle single replacement parts and prototypes right through to full production runs – for businesses, OEMs and trade.",
   },
   {
     q: "What file formats do you need for a quote?",
@@ -33,7 +33,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "What services do you offer in-house?",
-    a: "Laser cutting, CNC bending, CNC punching, welding and assembly, plus machining and finishing — the full workflow under one roof, so there are no outsourcing delays.",
+    a: "Laser cutting, CNC bending, CNC punching, welding and assembly, plus machining and finishing – the full workflow under one roof, so there are no outsourcing delays.",
   },
   {
     q: "Do you work with businesses in my industry?",

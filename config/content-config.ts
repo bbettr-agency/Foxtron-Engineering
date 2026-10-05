@@ -1,5 +1,5 @@
 /**
- * CONTENT CONFIG — Foxtron Engineering
+ * CONTENT CONFIG – Foxtron Engineering
  * Trust proof, stats, testimonials, differentiators, process.
  * Only [verified]/[client-stated] facts. No fabricated stats or reviews.
  */
@@ -20,11 +20,11 @@ export const stats = [
 export const differentiators = [
   {
     title: "Everything in-house",
-    body: "Laser cutting, CNC bending, punching, welding, assembly and finishing under one roof — no outsourcing, no hand-offs, tighter control of quality and lead time.",
+    body: "Laser cutting, CNC bending, punching, welding, assembly and finishing under one roof – no outsourcing, no hand-offs, tighter control of quality and lead time.",
   },
   {
     title: "Prototype to production",
-    body: "From a single replacement part or prototype to full production runs — we're set up for both, for businesses and trade.",
+    body: "From a single replacement part or prototype to full production runs – we're set up for both, for businesses and trade.",
   },
   {
     title: "Precision you can repeat",
@@ -36,7 +36,7 @@ export const differentiators = [
   },
 ];
 
-// ── Testimonials — ONLY the two genuine reviews from the live site ──
+// ── Testimonials – ONLY the two genuine reviews from the live site ──
 export const testimonials = [
   { quote: "Very speedy service!!! Will always return.", name: "Riaan Rademan", source: "Google review" },
   { quote: "Great service! All the staff are friendly.", name: "Stephanie Cook", source: "Google review" },
@@ -47,7 +47,7 @@ export const processSteps = [
   {
     step: "01",
     title: "Send your drawing or enquiry",
-    body: "Upload a DXF, DWG, STEP or PDF — or just describe the job. Tell us the material, quantity and deadline.",
+    body: "Upload a DXF, DWG, STEP or PDF – or just describe the job. Tell us the material, quantity and deadline.",
   },
   {
     step: "02",
@@ -57,26 +57,27 @@ export const processSteps = [
   {
     step: "03",
     title: "We fabricate",
-    body: "Cut, bend, punch, weld, assemble and finish — all in-house, with quality checked along the way.",
+    body: "Cut, bend, punch, weld, assemble and finish – all in-house, with quality checked along the way.",
   },
   {
     step: "04",
     title: "Quality check & delivery",
-    body: "Your finished parts are checked and dispatched, ready to use — across Centurion, Pretoria and greater Gauteng.",
+    body: "Your finished parts are checked and dispatched, ready to use – across Centurion, Pretoria and greater Gauteng.",
   },
 ];
 
 // ── Quality / ISO messaging ──
-// NOTE: ISO 9001 is [client-stated]. Do not publish a certificate number or body
-// until the real certificate is supplied. Keep copy about the commitment/process.
+// [verified] from the supplied ISO 9001:2015 certificate (AfriCert, cert 2024042201,
+// issued 22 Apr 2024, valid to 21 Apr 2027; SANAS/IAF accredited).
 export const quality = {
-  heading: "Quality is built into every job",
-  body: "Foxtron works to an ISO 9001 quality-management approach — consistent processes, in-process checks and a final inspection before anything leaves the floor. We stand behind every part we deliver.",
+  heading: "ISO 9001:2015 certified quality",
+  body: "Foxtron Engineering holds ISO 9001:2015 certification for its sheet-metal design and fabrication – independently assessed and issued by AfriCert, a SANAS- and IAF-accredited certification body. Every job runs on consistent, documented processes with inspection before it leaves the floor.",
   points: [
-    "ISO 9001 quality-management approach", // [client-stated] — certificate pending
-    "In-process and final inspection",
+    "ISO 9001:2015 certified – AfriCert, certificate 2024042201",
+    "SANAS- and IAF-accredited certification body",
+    "In-process and final inspection on every job",
     "Consistent, repeatable results across the batch",
-    "Accountable, established team since 1992",
   ],
-  certificatePending: true,
+  certNumber: "2024042201",
+  certValidTo: "21 April 2027",
 };

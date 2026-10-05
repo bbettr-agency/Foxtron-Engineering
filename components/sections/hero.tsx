@@ -5,7 +5,6 @@ import { m, useScroll, useTransform } from "framer-motion";
 import { Phone, ArrowRight, Check, ChevronDown } from "lucide-react";
 import { ImageSlot } from "@/components/ui/image-slot";
 import { ButtonLink } from "@/components/ui/button";
-import { AnimatedHeading } from "@/components/ui/animated-heading";
 import { Marquee } from "@/components/ui/marquee";
 import { hero } from "@/config/images";
 import { site, cta } from "@/config/site-config";
@@ -35,7 +34,7 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-brand-ink">
-      {/* Parallax background (LCP — loads instantly, only transforms) */}
+      {/* Parallax background (LCP – loads instantly, only transforms) */}
       <m.div style={{ y: imgY }} className="absolute inset-0 -bottom-24">
         <ImageSlot image={hero.main} priority sizes="100vw" className="h-full w-full" />
       </m.div>
@@ -57,12 +56,11 @@ export function Hero() {
             Precision metal fabrication · Centurion
           </m.p>
 
-          <AnimatedHeading
-            as="h1"
-            text="Precision sheet metal fabrication, built for"
-            highlight="industry."
-            className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white md:text-6xl lg:text-[4.25rem]"
-          />
+          {/* LCP element – renders immediately (no JS-gated opacity) so LCP stays fast. */}
+          <h1 className="hero-title mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white md:text-6xl lg:text-[4.25rem]">
+            Precision sheet metal fabrication, built for{" "}
+            <span className="text-brand-accent">industry.</span>
+          </h1>
 
           <m.p
             className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-brand-mist md:text-lg"
@@ -70,7 +68,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
           >
-            Laser cutting, CNC bending and metal fabrication under one roof in Centurion — from a
+            Laser cutting, CNC bending and metal fabrication under one roof in Centurion – from a
             single prototype to full production runs. {site.rfqResponse}
           </m.p>
 
