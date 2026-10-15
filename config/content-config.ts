@@ -68,13 +68,12 @@ export const processSteps = [
 
 // ── Quality / ISO messaging ──
 // [verified] from the supplied ISO 9001:2015 certificate (AfriCert, cert 2024042201,
-// issued 22 Apr 2024, valid to 21 Apr 2027; SANAS/IAF accredited).
+// issued 22 Apr 2024, valid to 21 Apr 2027).
 export const quality = {
   heading: "ISO 9001:2015 certified quality",
-  body: "Foxtron Engineering holds ISO 9001:2015 certification for its sheet-metal design and fabrication – independently assessed and issued by AfriCert, a SANAS- and IAF-accredited certification body. Every job runs on consistent, documented processes with inspection before it leaves the floor.",
+  body: "Foxtron Engineering holds ISO 9001:2015 certification for its sheet-metal design and fabrication – independently assessed and issued by AfriCert. Every job runs on consistent, documented processes with inspection before it leaves the floor.",
   points: [
     "ISO 9001:2015 certified – AfriCert, certificate 2024042201",
-    "SANAS- and IAF-accredited certification body",
     "In-process and final inspection on every job",
     "Consistent, repeatable results across the batch",
   ],
