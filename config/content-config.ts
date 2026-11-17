@@ -79,4 +79,6 @@ export const quality = {
   ],
   certNumber: "2024042201",
   certValidTo: "21 April 2027",
+  certIssued: "2024-04-22", // ISO date for schema
+  certExpires: "2027-04-21", // ISO date for schema
 };

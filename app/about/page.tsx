@@ -9,7 +9,7 @@ import { ImageSlot } from "@/components/ui/image-slot";
 import { Reveal } from "@/components/ui/reveal";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildMetadata, pageSeo } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
 import { factory, team } from "@/config/images";
 import { differentiators } from "@/config/content-config";
 
@@ -23,7 +23,18 @@ const crumbs = [
 export default function AboutPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd
+        data={graph(
+          webPageSchema({
+            path: pageSeo.about.path,
+            name: pageSeo.about.title,
+            description: pageSeo.about.description,
+            type: "AboutPage",
+            speakable: true,
+          }),
+          breadcrumbSchema(crumbs),
+        )}
+      />
       <PageHero
         eyebrow="About Foxtron"
         title="A Centurion fabrication partner since 1992"
@@ -35,7 +46,7 @@ export default function AboutPage() {
       <section className="section-pad bg-white">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="text-lg leading-relaxed text-brand-graphite">
+            <p data-speakable className="text-lg leading-relaxed text-brand-graphite">
               Foxtron Engineering has been fabricating precision sheet metal in Sunderland Ridge,
               Centurion since 1992. Over three decades we&apos;ve grown from a small operation into a
               reliable partner for businesses that need both low-volume prototypes and high-volume

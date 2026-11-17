@@ -6,7 +6,7 @@ import { Process } from "@/components/sections/process";
 import { FinalCta } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildMetadata, pageSeo } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, graph, serviceListSchema, webPageSchema } from "@/lib/schema";
 import { hero } from "@/config/images";
 
 export const metadata: Metadata = buildMetadata(pageSeo.services);
@@ -19,7 +19,18 @@ const crumbs = [
 export default function ServicesPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd
+        data={graph(
+          webPageSchema({
+            path: pageSeo.services.path,
+            name: pageSeo.services.title,
+            description: pageSeo.services.description,
+            type: "CollectionPage",
+            extra: { mainEntity: serviceListSchema() },
+          }),
+          breadcrumbSchema(crumbs),
+        )}
+      />
       <PageHero
         eyebrow="Our capabilities"
         title="In-house fabrication, end to end"

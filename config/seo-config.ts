@@ -23,7 +23,8 @@ export interface PageSeo {
 
 export const pageSeo: Record<string, PageSeo> = {
   home: {
-    title: "Laser Cutting & Metal Fabrication Centurion",
+    // absolute title (no template) – brand included explicitly, < 60 chars
+    title: "Laser Cutting & Fabrication Centurion | Foxtron Engineering",
     description:
       "Precision laser cutting, CNC bending and metal fabrication in Centurion. Prototypes to production runs for business – request a quote today.",
     path: "/",
@@ -64,9 +65,35 @@ export const pageSeo: Record<string, PageSeo> = {
       "Common questions on materials, thicknesses, file formats, minimum orders and how to request a quote from Foxtron Engineering in Centurion.",
     path: "/faq",
   },
+  privacy: {
+    title: "Privacy Policy – POPIA",
+    description:
+      "How Foxtron Engineering collects, uses and protects personal information submitted through this website and our quote form, in line with POPIA.",
+    path: "/privacy",
+  },
   thankYou: {
     title: "Thank You – We've Received Your Request",
     description: "Thanks for your enquiry. The Foxtron Engineering team will be in touch shortly.",
     path: "/thank-you",
   },
+};
+
+/**
+ * Last meaningful content change per route (ISO date). Drives sitemap <lastmod>
+ * and the WebPage `dateModified` schema. UPDATE THE DATE WHEN A PAGE'S CONTENT CHANGES –
+ * never stamp build time (crawlers learn to ignore dates that always change).
+ */
+export const pageUpdated: Record<string, string> = {
+  "/": "2026-11-17",
+  "/services": "2026-11-17",
+  "/services/laser-cutting": "2026-11-17",
+  "/services/cnc-bending": "2026-11-17",
+  "/services/welding-assembly": "2026-11-17",
+  "/services/cnc-punching": "2026-11-17",
+  "/gallery": "2026-10-15",
+  "/about": "2026-11-17",
+  "/quote": "2026-11-17",
+  "/contact": "2026-10-15",
+  "/faq": "2026-10-15",
+  "/privacy": "2026-11-17",
 };

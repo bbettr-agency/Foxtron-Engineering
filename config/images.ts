@@ -277,8 +277,6 @@ export const teamRoster: ManagedImage[] = [
 
 // ── Certifications (real ISO certificate still required) ─────────────────────
 export const certifications = {
-  // Full ISO 9001:2015 certificate (AfriCert) – square SVG canvas, shown object-contain.
-  iso9001: ready("/images/certifications/iso-9001.svg", 1000, 1000, "ISO 9001:2015 certificate", "Foxtron Engineering (Pty) Ltd ISO 9001:2015 certificate issued by AfriCert, certificate number 2024042201"),
   // Assurance mark badge (black on light surfaces).
   assuranceMark: ready("/images/certifications/foxtron-assurance-mark-black.png", 1709, 880, "ISO 9001 Quality Management", "ISO 9001 Quality Management assurance mark – AfriCert Certification and Assurance, certificate 2024042201"),
   // White variant for dark surfaces.

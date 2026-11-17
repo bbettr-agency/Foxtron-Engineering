@@ -8,7 +8,7 @@ import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { JsonLd } from "@/components/ui/json-ld";
 import { rootMetadata } from "@/lib/metadata";
-import { localBusinessSchema } from "@/lib/schema";
+import { siteGraph } from "@/lib/schema";
 
 const display = Sora({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["400", "500", "600"] });
 const body = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-ZA" className={`${display.variable} ${body.variable}`}>
       <body className="min-h-screen">
         <SmoothScroll />
-        <JsonLd data={localBusinessSchema()} />
+        <JsonLd data={siteGraph()} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-ink focus:px-4 focus:py-2 focus:text-white"

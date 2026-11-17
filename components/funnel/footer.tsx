@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { site, nav, cta } from "@/config/site-config";
 import { servicePages } from "@/config/services-config";
@@ -7,6 +7,11 @@ import { servicePages } from "@/config/services-config";
 export function Footer() {
   const year = new Date().getFullYear();
   const a = site.address;
+  const socials = [
+    { href: site.socials.facebook, label: "Facebook", Icon: Facebook },
+    { href: site.socials.instagram, label: "Instagram", Icon: Instagram },
+    { href: site.socials.linkedin, label: "LinkedIn", Icon: Linkedin },
+  ].filter((s) => s.href);
 
   return (
     <footer className="brushed-steel bg-brand-ink text-brand-mist">
@@ -16,6 +21,23 @@ export function Footer() {
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-brand-steel">
             {site.descriptionShort}
           </p>
+          {socials.length > 0 && (
+            <ul className="mt-5 flex gap-3">
+              {socials.map(({ href, label, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer me"
+                    aria-label={`${site.name} on ${label}`}
+                    className="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-white/15 hover:text-brand-accentLight"
+                  >
+                    <Icon size={18} aria-hidden />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <div>
@@ -92,7 +114,11 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-brand-steel sm:flex-row">
           <p>
-            © {year} {site.name}. Serving {site.areasServed.slice(0, -1).join(", ")} & {site.areasServed.at(-1)}.
+            © {year} {site.legalName} · Reg. {site.registrationNumber} · Serving{" "}
+            {site.areasServed.slice(0, -1).join(", ")} & {site.areasServed.at(-1)} ·{" "}
+            <Link href="/privacy" className="underline-offset-2 hover:text-brand-mist hover:underline">
+              Privacy policy
+            </Link>
           </p>
           <a href={site.agency.url} target="_blank" rel="noopener noreferrer" className="hover:text-brand-mist">
             {site.agency.label}

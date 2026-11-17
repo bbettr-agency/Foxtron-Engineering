@@ -51,7 +51,10 @@ export function Capabilities() {
                 <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accentLight">
                   {String(active + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
                 </span>
-                <h3 className="mt-2 text-2xl font-semibold text-white">{activeService.name}</h3>
+                {/* visual label only – the service names are the list headings (avoids duplicate H3s) */}
+                <p className="mt-2 text-2xl font-semibold text-white" aria-hidden>
+                  {activeService.name}
+                </p>
                 <p className="mt-2 max-w-sm text-sm text-brand-mist">{activeService.summary}</p>
               </div>
             </div>

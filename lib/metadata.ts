@@ -43,7 +43,12 @@ export function rootMetadata(): Metadata {
     description: defaultSeo.defaultDescription,
     applicationName: site.name,
     authors: [{ name: "Bbettr Agency", url: site.agency.url }],
-    robots: { index: true, follow: true },
+    // No explicit robots tag: pages are indexable by default, and leaving it unset lets
+    // Next.js emit a clean `noindex` on the 404 page without a conflicting `index, follow`.
+    verification: {
+      ...(site.verification.google ? { google: site.verification.google } : {}),
+      ...(site.verification.bing ? { other: { "msvalidate.01": site.verification.bing } } : {}),
+    },
   };
 }
 

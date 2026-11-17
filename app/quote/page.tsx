@@ -4,7 +4,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { RfqForm } from "@/components/funnel/rfq-form";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildMetadata, pageSeo } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
 import { site, cta } from "@/config/site-config";
 
 export const metadata: Metadata = buildMetadata(pageSeo.quote);
@@ -23,7 +23,17 @@ const reassurance = [
 export default function QuotePage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd
+        data={graph(
+          webPageSchema({
+            path: pageSeo.quote.path,
+            name: pageSeo.quote.title,
+            description: pageSeo.quote.description,
+            type: "WebPage",
+          }),
+          breadcrumbSchema(crumbs),
+        )}
+      />
       <PageHero
         eyebrow="Request a Quote"
         title="Tell us about your job"

@@ -5,7 +5,7 @@ import { FinalCta } from "@/components/sections/final-cta";
 import { ButtonLink } from "@/components/ui/button";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildMetadata, pageSeo } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
 import { site, cta } from "@/config/site-config";
 
 export const metadata: Metadata = buildMetadata(pageSeo.contact);
@@ -21,7 +21,18 @@ export default function ContactPage() {
 
   return (
     <>
-      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd
+        data={graph(
+          webPageSchema({
+            path: pageSeo.contact.path,
+            name: pageSeo.contact.title,
+            description: pageSeo.contact.description,
+            type: "ContactPage",
+            speakable: true,
+          }),
+          breadcrumbSchema(crumbs),
+        )}
+      />
       <PageHero
         eyebrow="Contact"
         title="Get in touch with Foxtron"

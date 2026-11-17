@@ -1,3 +1,32 @@
+/**
+ * Security headers (sitewide). CSP ships in REPORT-ONLY mode first: Next.js injects
+ * inline bootstrap scripts and the contact page embeds a Google Maps iframe. Once the
+ * browser console shows no CSP reports in production, rename the header to
+ * `Content-Security-Policy` to enforce it.
+ */
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+  "frame-src https://www.google.com https://maps.google.com",
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join("; ");
+
+const securityHeaders = [
+  { key: "Content-Security-Policy-Report-Only", value: csp },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
+  { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -13,6 +42,10 @@ const nextConfig = {
   // (/home, /about-us, /services, /contact-us, /iso-9001) and the legacy index.php
   // duplicate still indexed. Each is a single hop to its final destination (no chains).
   // Apex→www is handled by Vercel at the domain level; these are path-only, host-agnostic.
+  async headers() {
+    return [{ source: "/:path*", headers: securityHeaders }];
+  },
+
   async redirects() {
     return [
       // The old homepage was served at both "/" and "/home" — collapse the duplicate.

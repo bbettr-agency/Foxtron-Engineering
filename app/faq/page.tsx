@@ -4,7 +4,7 @@ import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildMetadata, pageSeo } from "@/lib/metadata";
-import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqEntities, graph, webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata(pageSeo.faq);
 
@@ -16,7 +16,18 @@ const crumbs = [
 export default function FaqPage() {
   return (
     <>
-      <JsonLd data={[faqSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd
+        data={graph(
+          webPageSchema({
+            path: pageSeo.faq.path,
+            name: pageSeo.faq.title,
+            description: pageSeo.faq.description,
+            type: "FAQPage",
+            extra: { mainEntity: faqEntities() },
+          }),
+          breadcrumbSchema(crumbs),
+        )}
+      />
       <PageHero
         eyebrow="FAQs"
         title="Frequently asked questions"

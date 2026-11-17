@@ -2,7 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/** Count-up stat – triggers once on view. Falls back to final value with reduced motion. */
+/**
+ * Count-up stat – triggers once on view.
+ * The FINAL value is rendered on the server (and is what crawlers / no-JS
+ * readers see); the animation only resets to 0 on the client, just before it
+ * counts up. Reduced-motion users keep the final value throughout.
+ */
 export function CountUp({
   value,
   suffix = "",
@@ -12,7 +17,7 @@ export function CountUp({
   suffix?: string;
   duration?: number;
 }) {
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(value);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
@@ -25,6 +30,13 @@ export function CountUp({
       setDisplay(value);
       return;
     }
+    // Only animate stats that start off-screen; visible-on-load stats keep the real number.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setDisplay(value);
+      return;
+    }
+    setDisplay(0);
 
     const io = new IntersectionObserver(
       (entries) => {

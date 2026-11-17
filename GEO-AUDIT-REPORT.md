@@ -311,3 +311,47 @@ Foxtron does not appear.
 - http→https not tested.
 - No field Core Web Vitals.
 - Brand and competitor checks used a US-based web search, so South African local results may differ.
+
+---
+
+## Implementation Status (17 November 2026)
+
+### Fixed in code
+
+| Issue | Fix | Where |
+|---|---|---|
+| Stat counters showed "0" to crawlers | The real value (34+ / 6 / 5) is now rendered on the server; the animation runs on the client only | `components/ui/count-up.tsx` |
+| No WebSite node; no `sameAs` support | One `@graph` per page: WebSite + LocalBusiness + a page node, all linked by `@id`. `sameAs` / `hasMap` fill in automatically from config | `lib/schema.ts`, `app/layout.tsx` |
+| ISO 9001 not in schema | `hasCertification` (AfriCert, 2024042201, 2024-04-22 → 2027-04-21) | `lib/schema.ts` |
+| Assumed `geo` published as fact | Coordinates are left out until `geoVerified: true` | `config/site-config.ts` |
+| Duplicate FAQPage on home | FAQPage markup is now on /faq only | `app/page.tsx` |
+| Services not linked to the business | Service `@id`s, `hasOfferCatalog` (all 6 services), and an ItemList on /services | `lib/schema.ts`, `app/services/page.tsx` |
+| Missing business fields | Added `description`, `knowsAbout`, `contactPoint`, raster logo, image array, international telephone, CIPC `identifier` | `lib/schema.ts` |
+| Pages not described in schema | WebPage / AboutPage / ContactPage / CollectionPage / FAQPage nodes with `dateModified`; `speakable` on about, contact and service pages | all `app/**/page.tsx` |
+| Thin service pages | Each now opens with a question-led H2 and a self-contained answer, followed by capability, capacity, quote-files and why-Foxtron sections, 3 service-specific FAQs and a visible "last updated" date (~450–550 words). Uses existing site facts only | `config/services-config.ts`, `app/services/[slug]/page.tsx` |
+| Short meta descriptions | Service descriptions are 134–159 characters, trimmed on word boundaries | same |
+| Home title had no brand | "Laser Cutting & Fabrication Centurion \| Foxtron Engineering" | `config/seo-config.ts` |
+| No llms.txt | `/llms.txt` is generated from config, so it can't drift from the site | `app/llms.txt/route.ts` |
+| Build-time sitemap dates | Real per-page dates from `pageUpdated` | `app/sitemap.ts`, `config/seo-config.ts` |
+| No explicit AI-crawler rules; `Host:` line | Explicit allow group for 18 AI crawlers; `Host:` line removed | `app/robots.ts` |
+| Missing security headers | X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP; CSP in report-only mode | `next.config.js` |
+| 404 had conflicting robots tags | Default `index, follow` removed, so the 404 now has only `noindex` | `lib/metadata.ts` |
+| No privacy policy / POPIA notice | New /privacy page; consent line on the RFQ form; footer link | `app/privacy/page.tsx`, `components/funnel/rfq-form.tsx` |
+| Registration number not shown | Footer: "Foxtron Engineering (Pty) Ltd · Reg. 2020/543748/07" | `components/funnel/footer.tsx` |
+| Duplicate H3 in the services spotlight | The spotlight label is no longer a heading | `components/sections/capabilities.tsx` |
+| Unused heavy assets | Deleted `iso-9001.svg` (590 KB) and `Foxtron Logo.svg+xml` | `public/images/` |
+| Bing verification / IndexNow | IndexNow key file at `/7c372122a142e520d3a6d986db664a49.txt`; config slots for Google and Bing verification tokens | `config/site-config.ts`, `public/` |
+
+### Waiting on the client (cannot be fixed without real facts)
+
+- [ ] **Confirm official profiles.** Is facebook.com/foxtronengineering theirs? What are the Google Business Profile URL and the exact map pin? Fill these in `config/site-config.ts`; `sameAs`, `hasMap`, `geo` and the footer icons then switch on automatically.
+- [ ] **Founding year.** Confirm 1992 (the registry shows 1997 incorporation; the current entity was registered in 2020) and explain the history on /about.
+- [ ] **Fix third-party listings.** Correct iVote ("Rowan Place"), CCBC ("Rosslyn") and D&B ("CC"); claim Brabys, Yellow Pages SA and Cylex.
+- [ ] **Create a LinkedIn company page**, then add it to config.
+- [ ] **Google Search Console and Bing Webmaster Tools.** Paste the verification tokens into `site.verification` and submit the sitemap.
+- [ ] **Specs for bending, punching and welding:** tonnage, bend length, thickness range, tolerances and welding codes. Confirm current machine makes too (image alt text mentions both Trumpf and Bystronic).
+- [ ] **Scope for Machining & Finishing, Roll Work and Custom Fabrication**, so each can get its own page.
+- [ ] **2–4 publishable case studies**, and permission to name team members.
+- [ ] **Approve /privacy** and confirm the registered POPIA Information Officer.
+- [ ] **Google review requests** to past clients, and an editorial pitch to metalworkingnews.info.
+- [ ] **Enforce the CSP.** Once production shows no CSP reports, rename the header to `Content-Security-Policy`.

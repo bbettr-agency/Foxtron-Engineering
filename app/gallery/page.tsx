@@ -4,7 +4,7 @@ import { GalleryGrid } from "@/components/sections/gallery-grid";
 import { FinalCta } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildMetadata, pageSeo } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
 import { factory } from "@/config/images";
 
 export const metadata: Metadata = buildMetadata(pageSeo.gallery);
@@ -17,7 +17,17 @@ const crumbs = [
 export default function GalleryPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd
+        data={graph(
+          webPageSchema({
+            path: pageSeo.gallery.path,
+            name: pageSeo.gallery.title,
+            description: pageSeo.gallery.description,
+            type: "CollectionPage",
+          }),
+          breadcrumbSchema(crumbs),
+        )}
+      />
       <PageHero
         eyebrow="Our work"
         title="Inside the Foxtron workshop"

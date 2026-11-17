@@ -5,6 +5,7 @@
  */
 
 import { services as serviceImages } from "@/config/images";
+import type { Faq } from "@/config/faqs-config";
 
 export interface ServiceSpec {
   label: string;
@@ -16,8 +17,12 @@ export interface Service {
   name: string;
   /** one-line hub summary */
   summary: string;
-  /** service-page intro paragraph */
+  /** question-style H2 that the intro answers directly (AI-citable answer block) */
+  question?: string;
+  /** service-page intro paragraph – a self-contained 40–70 word answer to `question` */
   intro: string;
+  /** service-specific FAQs (built ONLY from facts stated elsewhere on the site) */
+  faqs?: Faq[];
   /** bullet capabilities/benefits */
   points: string[];
   /** spec table (client-stated) */
@@ -35,9 +40,24 @@ export const services: Service[] = [
     slug: "laser-cutting",
     name: "Laser Cutting",
     summary:
-      "High-precision fibre laser cutting with clean edges and repeatable accuracy across a wide range of metals.",
+      "High-precision fibre laser cutting with clean edges and repeatable accuracy across mild steel, stainless, aluminium, brass and copper.",
+    question: "What can Foxtron laser cut?",
     intro:
-      "Our fibre laser cutting delivers clean, burr-minimised edges and tight, repeatable accuracy – from intricate one-off profiles to high-volume nested production. We cut mild steel, stainless, aluminium, brass and copper to your drawings.",
+      "Foxtron Engineering's fibre laser cuts sheets up to 3000 × 1500 mm: mild steel 0.6–22 mm, stainless steel 0.5–12 mm, aluminium 0.9–10 mm, brass 0.3–10 mm and copper 0.4–6 mm. It handles one-off profiles through to nested production runs, cut with clean, burr-minimised edges from your DXF, DWG, STEP or PDF files at our workshop in Centurion, Gauteng.",
+    faqs: [
+      {
+        q: "What is the largest sheet you can laser cut?",
+        a: "Our fibre laser bed takes sheets up to 3000 × 1500 mm, which suits large panels as well as nested production runs of smaller parts.",
+      },
+      {
+        q: "How thick can you laser cut mild steel and stainless steel?",
+        a: "As a guide, mild steel from 0.6 to 22 mm and stainless steel from 0.5 to 12 mm. Send your drawing and material and we'll confirm the exact capacity for your part.",
+      },
+      {
+        q: "Do you laser cut one-off parts and prototypes?",
+        a: "Yes. We cut single replacement parts and prototypes as well as full production runs, for businesses, OEMs and trade.",
+      },
+    ],
     points: [
       "Fibre laser cutting for mild steel, stainless, aluminium, brass and copper",
       "Large-format bed for sizeable sheets and nested production runs",
@@ -60,9 +80,24 @@ export const services: Service[] = [
     slug: "cnc-bending",
     name: "CNC Bending",
     summary:
-      "CNC press-brake bending for accurate angles, structural integrity and consistent, repeatable folds.",
+      "CNC press-brake bending for accurate angles, structural integrity and consistent, repeatable folds – from prototypes to production runs.",
+    question: "What does Foxtron's CNC bending service do?",
     intro:
-      "Using CNC press brakes, we fold sheet and plate to precise angles with consistent results across the batch – from single brackets to full production quantities.",
+      "Foxtron Engineering folds sheet and plate on CNC press brakes at its ISO 9001:2015-certified workshop in Centurion, from single brackets to full production runs. Parts are usually laser-cut in-house first and then bent on the same floor, so there is no outsourcing between cutting and folding – and angles stay consistent across the whole batch.",
+    faqs: [
+      {
+        q: "Can you bend parts that you have laser cut?",
+        a: "Yes – that is our usual workflow. Parts are laser cut and then folded on our CNC press brakes in the same Centurion workshop, with no hand-off to another supplier.",
+      },
+      {
+        q: "Do you do CNC bending for small quantities?",
+        a: "Yes. We bend prototype and one-off quantities as well as full production runs, with CNC control keeping every fold in the batch consistent.",
+      },
+      {
+        q: "What do I need to send for a bending quote?",
+        a: "A DXF, DWG, STEP or PDF drawing with the material, thickness and quantity. No drawing yet? Send a sketch, photo or sample part and we'll help.",
+      },
+    ],
     points: [
       "CNC press-brake folding for accurate, repeatable angles",
       "Handles prototype quantities through to production runs",
@@ -77,9 +112,24 @@ export const services: Service[] = [
     slug: "welding-assembly",
     name: "Welding & Assembly",
     summary:
-      "Professional MIG/TIG welding, fabrication and assembly – delivering finished, ready-to-use components.",
+      "Professional MIG/TIG welding, fabrication and assembly of steel, stainless and aluminium – delivering finished, ready-to-use components.",
+    question: "What welding and assembly work does Foxtron do?",
     intro:
-      "Our welding and assembly bay turns cut and folded parts into finished, ready-to-use components and sub-assemblies – welded, fitted and quality-checked before they leave the floor.",
+      "Foxtron Engineering's welding and assembly bay in Centurion turns cut and folded parts into finished, ready-to-use components and sub-assemblies. We MIG and TIG weld steel, stainless steel and aluminium, fabricate frames and enclosures, install inserts and fit assemblies – and every job is quality-checked under our ISO 9001:2015 system before it leaves the floor.",
+    faqs: [
+      {
+        q: "Which welding processes do you offer?",
+        a: "MIG and TIG welding of steel, stainless steel and aluminium, as part of our in-house fabrication and assembly service.",
+      },
+      {
+        q: "Can you supply finished, assembled components?",
+        a: "Yes. We fabricate frames, enclosures and sub-assemblies, install inserts and assemble components so they arrive ready to use.",
+      },
+      {
+        q: "Can you cut, bend and weld the same job?",
+        a: "Yes. Laser cutting, CNC bending, welding and assembly all happen under one roof in Centurion, so there are no outsourcing delays between steps.",
+      },
+    ],
     points: [
       "MIG and TIG welding of steel, stainless and aluminium",
       "Fabrication of frames, enclosures and sub-assemblies",
@@ -94,9 +144,24 @@ export const services: Service[] = [
     slug: "cnc-punching",
     name: "CNC Punching",
     summary:
-      "Efficient CNC punching for repeatable, cost-effective sheet metal components at speed.",
+      "Efficient CNC punching for repeatable, cost-effective sheet metal components with consistent hole patterns and forms, at speed.",
+    question: "When is CNC punching the right choice?",
     intro:
-      "CNC punching gives us fast, repeatable forming of sheet metal components – an efficient, cost-effective route for the right high-volume parts.",
+      "CNC punching is a fast, repeatable way to produce sheet metal components with consistent hole patterns and forms. At Foxtron Engineering in Centurion it is an efficient, cost-effective route for suitable high-volume parts, and sits alongside our fibre laser – so each job can be routed to the process that suits the part best.",
+    faqs: [
+      {
+        q: "Is CNC punching cheaper than laser cutting?",
+        a: "For suitable high-volume parts with repeated hole patterns and forms, punching is often the more cost-effective route. Send your drawing and quantity and we'll recommend the best process.",
+      },
+      {
+        q: "What parts suit CNC punching?",
+        a: "Sheet metal components that need consistent hole patterns and forms, produced in volume – where speed and repeatability matter most.",
+      },
+      {
+        q: "Can punched parts be bent and assembled too?",
+        a: "Yes. Punched parts can go straight on to CNC bending, welding and assembly in the same workshop.",
+      },
+    ],
     points: [
       "Fast, repeatable sheet metal punching",
       "Cost-effective for suitable high-volume parts",

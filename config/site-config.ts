@@ -9,6 +9,7 @@
 export const site = {
   name: "Foxtron Engineering",
   legalName: "Foxtron Engineering (Pty) Ltd", // [verified] ISO cert – reg 2020/543748/07
+  registrationNumber: "2020/543748/07", // [verified] CIPC reg, from the ISO certificate
   // 5-second promise
   tagline: "Precision sheet metal fabrication, built for industry",
   descriptionShort:
@@ -34,8 +35,10 @@ export const site = {
     country: "South Africa",
     countryCode: "ZA",
     mapQuery: "Foxtron Engineering, 46 Rowan Nook, Sunderland Ridge, Centurion",
-    // [assumed] approx coords for Sunderland Ridge – replace with exact GBP pin
+    // [assumed] approx coords for Sunderland Ridge – replace with exact GBP pin,
+    // then set geoVerified: true. Coordinates are NOT published in schema until verified.
     geo: { lat: -25.8543, lng: 28.1462 },
+    geoVerified: false,
   },
 
   // Mon–Thu 09:00–17:00, Fri 09:00–15:00, weekends closed [verified]
@@ -52,11 +55,23 @@ export const site = {
 
   areasServed: ["Centurion", "Pretoria", "Midrand", "Johannesburg", "Gauteng"],
 
+  // Official profiles. Add a URL ONLY once the client confirms the profile is theirs.
+  // Every non-empty URL is linked in the footer and emitted as schema.org `sameAs`.
   socials: {
-    facebook: "", // add real URLs when confirmed
+    facebook: "", // candidate found in audit: https://www.facebook.com/foxtronengineering – confirm ownership
     instagram: "",
-    linkedin: "",
+    linkedin: "", // no company page yet – create one, then add it here
   },
+  // Google Business Profile share/maps URL (schema `hasMap` + `sameAs`) – confirm with client.
+  googleBusinessProfile: "",
+
+  // Search-engine ownership verification tokens (rendered as <meta> tags when set).
+  verification: {
+    google: "", // Google Search Console HTML-tag token
+    bing: "", // Bing Webmaster Tools msvalidate.01 token
+  },
+  // IndexNow key (Bing/Yandex/Seznam fast indexing). Key file is served at /<key>.txt.
+  indexNowKey: "7c372122a142e520d3a6d986db664a49",
 
   // RFQ response commitment – confirm with client before publishing the SLA
   rfqResponse: "We respond to every RFQ within 1 business day.", // [client-stated] confirm

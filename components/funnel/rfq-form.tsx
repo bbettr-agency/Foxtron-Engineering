@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Upload, ArrowRight, ArrowLeft, Check, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { site } from "@/config/site-config";
 
 const PROCESSES = [
   "Laser cutting",
@@ -272,7 +273,12 @@ export function RfqForm() {
             </div>
           </div>
           <p className="text-xs text-brand-steel">
-            By submitting, you agree we may contact you about your enquiry. We respond to every RFQ within 1 business day.
+            By submitting, you agree that {site.legalName} may use these details to respond to your enquiry, as set out in
+            our{" "}
+            <a href="/privacy" target="_blank" className="underline hover:text-brand-ink">
+              privacy policy
+            </a>{" "}
+            (POPIA). {site.rfqResponse}
           </p>
           {error && <p className="text-sm text-error">{error}</p>}
         </div>
